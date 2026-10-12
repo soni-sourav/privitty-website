@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #6750a4;
+  --color-primary-hover: #57418f;
+  --color-primary-dark: #4f378a;
+  --color-primary-fixed-dim: #cfbcff;
+  --color-card: #d2d2f3;
+  --color-background: #f8f5ff;
+  --color-surface-card: #ffffff;
+  --color-text: #17151d;
+  --color-text-secondary: #625f6b;
+  --color-border: #ddd8e8;
+  --color-secondary: #5b5c78;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-card-bg: var(--color-card);
+  --color-bg-light: var(--color-background);
+  --color-text-main: var(--color-text);
+  --color-text-sub: var(--color-text-secondary);
+  --color-border-subtle: var(--color-border);
+  --font-headline: var(--font-manrope), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-inter), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-manrope), sans-serif;
+}
+
