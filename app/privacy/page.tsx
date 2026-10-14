@@ -11,8 +11,9 @@ export default function PrivacyPage() {
 
       <main className="flex-1 py-16 px-6 max-w-7xl mx-auto w-full">
         {/* HEADER */}
-        <div className="max-w-3xl space-y-4 mb-16">
+        <div data-gsap="fade-up" className="max-w-3xl space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D2D2F3]/60 border border-[#DDD8E8] text-xs font-semibold text-[#4f378a]">
+            <span className="w-2 h-2 rounded-full bg-[#6750A4] animate-pulse"></span>
             Legal &amp; Compliance &bull; Last updated 20 Aug 2026
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#17151D] font-headline">
@@ -25,20 +26,23 @@ export default function PrivacyPage() {
 
         <div className="grid md:grid-cols-12 gap-8 items-start">
           {/* LEFT SIDEBAR: Table of Contents */}
-          <aside className="md:col-span-4 sticky top-28 bg-white p-6 rounded-3xl border border-[#DDD8E8] space-y-3 shadow-sm">
+          <aside
+            data-gsap="slide-left"
+            className="md:col-span-4 sticky top-28 bg-white p-6 rounded-3xl border border-[#DDD8E8] space-y-3 shadow-sm premium-card"
+          >
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#6750A4] pb-2 border-b border-[#DDD8E8]">
               Table of Contents
             </h3>
             <nav className="space-y-2 text-xs font-medium text-[#625F6B]">
-              <a href="#section-1" className="block hover:text-[#6750A4] transition-colors">1. Information We Collect</a>
-              <a href="#section-2" className="block hover:text-[#6750A4] transition-colors">2. How We Use Your Information</a>
-              <a href="#section-3" className="block hover:text-[#6750A4] transition-colors">3. Sharing Your Information</a>
-              <a href="#section-4" className="block hover:text-[#6750A4] transition-colors">4. Cookies &amp; Similar Technologies</a>
-              <a href="#section-5" className="block hover:text-[#6750A4] transition-colors">5. Your Choices</a>
-              <a href="#section-6" className="block hover:text-[#6750A4] transition-colors">6. Security</a>
-              <a href="#section-7" className="block hover:text-[#6750A4] transition-colors">7. Children&apos;s Privacy</a>
-              <a href="#section-8" className="block hover:text-[#6750A4] transition-colors">8. Changes to Privacy Policy</a>
-              <a href="#section-9" className="block hover:text-[#6750A4] transition-colors">9. Contact Us</a>
+              <a href="#section-1" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">1. Information We Collect</a>
+              <a href="#section-2" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">2. How We Use Your Information</a>
+              <a href="#section-3" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">3. Sharing Your Information</a>
+              <a href="#section-4" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">4. Cookies &amp; Similar Technologies</a>
+              <a href="#section-5" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">5. Your Choices</a>
+              <a href="#section-6" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">6. Security</a>
+              <a href="#section-7" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">7. Children&apos;s Privacy</a>
+              <a href="#section-8" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">8. Changes to Privacy Policy</a>
+              <a href="#section-9" className="block hover:text-[#6750A4] hover:translate-x-1 transition-all">9. Contact Us</a>
             </nav>
 
             <div className="pt-4 border-t border-[#DDD8E8] text-[11px] text-[#625F6B] leading-relaxed">
@@ -49,7 +53,11 @@ export default function PrivacyPage() {
           {/* RIGHT CONTENT AREA */}
           <div className="md:col-span-8 space-y-8">
             {/* 1. Information We Collect */}
-            <section id="section-1" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-6 shadow-sm">
+            <section
+              id="section-1"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-6 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">1</span>
                 Information We Collect
@@ -73,7 +81,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 2. How We Use Your Information */}
-            <section id="section-2" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-6 shadow-sm">
+            <section
+              id="section-2"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-6 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">2</span>
                 How We Use Your Information
@@ -107,7 +119,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 3. Sharing Your Information */}
-            <section id="section-3" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm">
+            <section
+              id="section-3"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">3</span>
                 Sharing Your Information
@@ -118,7 +134,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 4. Cookies */}
-            <section id="section-4" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm">
+            <section
+              id="section-4"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">4</span>
                 Cookies and Similar Technologies
@@ -129,7 +149,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 5. Your Choices */}
-            <section id="section-5" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm">
+            <section
+              id="section-5"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">5</span>
                 Your Choices
@@ -140,7 +164,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 6. Security */}
-            <section id="section-6" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm">
+            <section
+              id="section-6"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">6</span>
                 Security
@@ -151,7 +179,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 7. Children's Privacy */}
-            <section id="section-7" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm">
+            <section
+              id="section-7"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">7</span>
                 Children&apos;s Privacy
@@ -162,7 +194,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 8. Changes */}
-            <section id="section-8" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm">
+            <section
+              id="section-8"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-4 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">8</span>
                 Changes to This Privacy Policy
@@ -173,7 +209,11 @@ export default function PrivacyPage() {
             </section>
 
             {/* 9. Contact Us */}
-            <section id="section-9" className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-6 shadow-sm">
+            <section
+              id="section-9"
+              data-gsap="fade-up"
+              className="bg-white p-8 rounded-3xl border border-[#DDD8E8] space-y-6 shadow-sm premium-card"
+            >
               <h2 className="text-xl font-bold text-[#17151D] font-headline flex items-center gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center text-xs font-bold">9</span>
                 Contact Us
@@ -189,7 +229,7 @@ export default function PrivacyPage() {
                 </div>
                 <a
                   href="mailto:privacy@privitty.com"
-                  className="px-6 py-2.5 rounded-xl bg-[#6750A4] text-white text-xs font-semibold hover:bg-[#57418F] transition-all inline-flex items-center gap-1.5"
+                  className="px-6 py-2.5 rounded-xl bg-[#6750A4] text-white text-xs font-semibold hover:bg-[#57418F] transition-all inline-flex items-center gap-1.5 interactive-btn cursor-pointer"
                 >
                   Send Inquiry
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -198,7 +238,10 @@ export default function PrivacyPage() {
             </section>
 
             {/* BOTTOM EMBLEM BADGE */}
-            <div className="bg-gradient-to-r from-[#D2D2F3] to-[#F8F5FF] p-10 rounded-3xl border border-[#DDD8E8] text-center space-y-4">
+            <div
+              data-gsap="scale-up"
+              className="bg-gradient-to-r from-[#D2D2F3] to-[#F8F5FF] p-10 rounded-3xl border border-[#DDD8E8] text-center space-y-4 premium-card"
+            >
               <div className="w-12 h-12 rounded-xl overflow-hidden mx-auto flex items-center justify-center">
                 <img
                   src="/logo.png"

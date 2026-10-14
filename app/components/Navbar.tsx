@@ -2,17 +2,134 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { XIcon, CheckIcon } from "./Icons";
+import {
+  XIcon,
+  CheckIcon,
+  ChevronDown,
+  UserIcon,
+  MenuIcon,
+  EdgePcIcon,
+  CodeBracketsIcon,
+  ShieldCheckIcon,
+} from "./Icons";
+import MegaSubmenu, { MegaSubmenuData, MobileSubmenu } from "./MegaSubmenu";
+
+interface NavItem {
+  name: string;
+  href: string;
+  submenu?: MegaSubmenuData;
+}
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [demoSubmitted, setDemoSubmitted] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(null);
 
-  const navLinks = [
-    { name: "Products", href: "/product" },
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const navContainerRef = useRef<HTMLDivElement | null>(null);
+
+  // Close submenu on route change
+  useEffect(() => {
+    setActiveSubmenu(null);
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Close submenu on click outside or Escape
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        navContainerRef.current &&
+        !navContainerRef.current.contains(event.target as Node)
+      ) {
+        setActiveSubmenu(null);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveSubmenu(null);
+        setIsMobileMenuOpen(false);
+        setIsDemoModalOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const handleMouseEnter = (name: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveSubmenu(name);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveSubmenu(null);
+    }, 150);
+  };
+
+  // Dynamic mega submenu data definition
+  const productsSubmenuData: MegaSubmenuData = {
+    cards: [
+      {
+        icon: <EdgePcIcon className="w-5 h-5 text-white" />,
+        badge: "EDGE PC",
+        category: "OT & GATEWAY SECURITY",
+        title: "Privitty Edge",
+        description:
+          "Machine identity & outbound-only remote access for MELIPC and Windows IoT industrial PCs.",
+        tags: ["Windows IoT", "Zero Open Ports"],
+        href: "/product#edge",
+      },
+      {
+        icon: <CodeBracketsIcon className="w-5 h-5 text-white" />,
+        badge: "SDK / API",
+        category: "DEVELOPER & PROTOCOLS",
+        title: "Communicator SDK",
+        description:
+          "Drop-in library for E2EE messaging, file-level policy governance, and instant cryptographic revocation.",
+        tags: ["Multi-Platform", "C / Rust / TS"],
+        href: "/product#sdk",
+      },
+      {
+        icon: <ShieldCheckIcon className="w-5 h-5 text-white" />,
+        badge: "APP",
+        category: "ENTERPRISE COMMUNICATIONS",
+        title: "Communicator App",
+        description:
+          "Sovereign team communication app with zero metadata tracking, per-file access limits, and private relays.",
+        tags: ["Cross-Platform", "Sovereign Relays"],
+        href: "/product#app",
+      },
+    ],
+    footer: {
+      primaryLink: {
+        label: "Explore Full Product Suite & Technical Architecture",
+        href: "/product",
+      },
+      secondaryCta: {
+        text: "Need custom OEM integration?",
+        ctaLabel: "Book Demo",
+        onClick: () => setIsDemoModalOpen(true),
+      },
+    },
+  };
+
+  const navLinks: NavItem[] = [
+    {
+      name: "Products",
+      href: "/product",
+      submenu: productsSubmenuData,
+    },
     { name: "How It Works", href: "/#architecture" },
     { name: "About", href: "/about" },
     { name: "Privacy", href: "/privacy" },
@@ -22,9 +139,12 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-40 backdrop-blur-md bg-[#F8F5FF]/90 border-b border-[#DDD8E8] transition-all">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div
+          ref={navContainerRef}
+          className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative"
+        >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
             <div className="relative w-10 h-10 group-hover:scale-105 transition-transform">
               <Image
                 src="/logo.png"
@@ -41,18 +161,63 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          {/* Desktop Nav Links */}
+          <nav className="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
+              const hasSubmenu = Boolean(link.submenu);
+              const isSubmenuOpen = activeSubmenu === link.name;
+
+              if (hasSubmenu && link.submenu) {
+                return (
+                  <div
+                    key={link.name}
+                    className="relative"
+                    onMouseEnter={() => handleMouseEnter(link.name)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setActiveSubmenu(isSubmenuOpen ? null : link.name)
+                      }
+                      className={`transition-colors py-2 inline-flex items-center gap-1.5 focus:outline-none cursor-pointer ${
+                        isActive || isSubmenuOpen
+                          ? "text-[#6750A4] font-bold"
+                          : "text-[#625F6B] hover:text-[#17151D]"
+                      }`}
+                      aria-expanded={isSubmenuOpen}
+                      aria-haspopup="true"
+                    >
+                      <span>{link.name}</span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          isSubmenuOpen
+                            ? "rotate-180 text-[#6750A4]"
+                            : "text-[#7B7787]"
+                        }`}
+                      />
+                    </button>
+
+                    <MegaSubmenu
+                      isOpen={isSubmenuOpen}
+                      onClose={() => setActiveSubmenu(null)}
+                      data={link.submenu}
+                      className="-left-4 sm:-left-8 lg:-left-12"
+                    />
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`transition-colors py-1 ${isActive
+                  className={`transition-colors py-2 ${
+                    isActive
                       ? "text-[#6750A4] font-bold border-b-2 border-[#6750A4]"
                       : "text-[#625F6B] hover:text-[#17151D]"
-                    }`}
+                  }`}
                 >
                   {link.name}
                 </Link>
@@ -60,19 +225,101 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Action Buttons */}
+          {/* Right Action Buttons */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsDemoModalOpen(true)}
-              className="px-5 py-2.5 rounded-full text-sm font-semibold bg-[#6750A4] text-white hover:bg-[#57418F] shadow-md shadow-[#6750A4]/25 transition-all transform hover:-translate-y-0.5"
+              className="hidden sm:inline-flex px-5 py-2.5 rounded-full text-sm font-semibold bg-[#543C95] text-white hover:bg-[#432E76] shadow-md shadow-[#543C95]/20 transition-all transform hover:-translate-y-0.5 cursor-pointer"
             >
               Book a Demo
             </button>
-            <div className="w-9 h-9 rounded-full bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center font-bold text-sm">
-              &bull;&bull;&bull;
-            </div>
+
+            {/* Profile Avatar Button matching reference */}
+            <button
+              onClick={() => setIsDemoModalOpen(true)}
+              className="w-9 h-9 rounded-full bg-[#543C95] text-white flex items-center justify-center hover:bg-[#432E76] transition-colors shadow-xs cursor-pointer"
+              aria-label="User Account"
+            >
+              <UserIcon className="w-4 h-4" />
+            </button>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden w-9 h-9 rounded-full bg-[#D2D2F3]/70 text-[#4f378a] flex items-center justify-center font-bold text-sm"
+              aria-label="Toggle Navigation Menu"
+            >
+              {isMobileMenuOpen ? (
+                <XIcon className="w-4 h-4" />
+              ) : (
+                <MenuIcon className="w-4 h-4" />
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-[#DDD8E8] px-5 py-5 space-y-4 shadow-xl">
+            <div className="space-y-2">
+              {navLinks.map((link) => {
+                const hasSubmenu = Boolean(link.submenu);
+                const isExpanded = mobileExpandedItem === link.name;
+
+                if (hasSubmenu && link.submenu) {
+                  return (
+                    <div key={link.name} className="space-y-1">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileExpandedItem(isExpanded ? null : link.name)
+                        }
+                        className="w-full flex items-center justify-between text-left text-sm font-bold text-[#17151D] py-2 px-1"
+                      >
+                        <span>{link.name}</span>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            isExpanded ? "rotate-180 text-[#6750A4]" : "text-[#7B7787]"
+                          }`}
+                        />
+                      </button>
+
+                      <MobileSubmenu
+                        isOpen={isExpanded}
+                        onClose={() => setIsMobileMenuOpen(false)}
+                        data={link.submenu}
+                      />
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-sm font-semibold text-[#17151D] py-2 px-1 hover:text-[#6750A4]"
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="pt-4 border-t border-[#DDD8E8] flex gap-3">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsDemoModalOpen(true);
+                }}
+                className="w-full py-3 rounded-xl text-center text-sm font-semibold bg-[#543C95] text-white hover:bg-[#432E76]"
+              >
+                Book a Demo
+              </button>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Shared Demo Modal */}
@@ -130,9 +377,9 @@ export default function Navbar() {
                   <div>
                     <label className="block text-xs font-bold text-[#17151D] mb-1">Deployment Focus</label>
                     <select className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4]">
-                      <option>Operational Technology (OT) & ICS</option>
-                      <option>Data Sovereignty & Local Residency</option>
-                      <option>Machine Identity & Certificate Automation</option>
+                      <option>Operational Technology (OT) &amp; ICS</option>
+                      <option>Data Sovereignty &amp; Local Residency</option>
+                      <option>Machine Identity &amp; Certificate Automation</option>
                       <option>Full Platform Audit</option>
                     </select>
                   </div>

@@ -15,32 +15,58 @@ export default function AboutPage() {
             SECTION 1: HERO SECTION
            ========================================================================= */}
         <section className="pt-20 pb-16 px-6 max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#ECE7F6] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A]"></span>
+          <div
+            data-gsap="fade-up"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#ECE7F6] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A] animate-pulse"></span>
             <span>BUILT FOR CRITICAL INFRASTRUCTURE &amp; OPERATIONS</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.1] max-w-4xl mx-auto">
+          <h1
+            data-gsap="fade-up"
+            data-gsap-delay="0.1"
+            className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.1] max-w-4xl mx-auto"
+          >
             We started with a<br />
             question <span className="italic font-light text-[#6750A4]">no one in OT</span><br />
             <span className="italic font-light text-[#6750A4]">was asking.</span>
           </h1>
 
-          <p className="text-sm sm:text-base text-[#625F6B] max-w-xl mx-auto mt-6 leading-relaxed">
+          <p
+            data-gsap="fade-up"
+            data-gsap-delay="0.2"
+            className="text-sm sm:text-base text-[#625F6B] max-w-xl mx-auto mt-6 leading-relaxed"
+          >
             Why are factory floors, energy grids, and water systems still relying on 30-year-old network perimeter models built for office IT?
           </p>
 
           {/* Stats Bar */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto mt-10">
-            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-[#DDD8E8]/70 shadow-xs text-center">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#17151D] font-headline">2022</div>
+          <div
+            data-gsap="stagger"
+            data-gsap-delay="0.25"
+            data-gsap-stagger="0.1"
+            className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto mt-10"
+          >
+            <div data-gsap-item className="bg-white p-5 sm:p-6 rounded-2xl border border-[#DDD8E8]/70 shadow-xs text-center premium-card">
+              <div
+                data-gsap="counter"
+                data-target="2022"
+                className="text-2xl sm:text-3xl font-extrabold text-[#17151D] font-headline"
+              >
+                2022
+              </div>
               <div className="text-[11px] sm:text-xs font-medium text-[#625F6B] mt-1">Founded</div>
             </div>
-            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-[#DDD8E8]/70 shadow-xs text-center">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#17151D] font-headline">0</div>
+            <div data-gsap-item className="bg-white p-5 sm:p-6 rounded-2xl border border-[#DDD8E8]/70 shadow-xs text-center premium-card">
+              <div
+                className="text-2xl sm:text-3xl font-extrabold text-[#17151D] font-headline"
+              >
+                0
+              </div>
               <div className="text-[11px] sm:text-xs font-medium text-[#625F6B] mt-1">Inbound Ports Required</div>
             </div>
-            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-[#DDD8E8]/70 shadow-xs text-center">
+            <div data-gsap-item className="bg-white p-5 sm:p-6 rounded-2xl border border-[#DDD8E8]/70 shadow-xs text-center premium-card">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#17151D] font-headline">E2EE</div>
               <div className="text-[11px] sm:text-xs font-medium text-[#625F6B] mt-1">End-to-End Encrypted</div>
             </div>
@@ -51,7 +77,10 @@ export default function AboutPage() {
             SECTION 2: PROVEN IMPACT & RESULTS
            ========================================================================= */}
         <section className="py-12 px-6 max-w-5xl mx-auto">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#DDD8E8]/80 shadow-sm space-y-8">
+          <div
+            data-gsap="fade-up"
+            className="bg-white rounded-3xl p-8 sm:p-12 border border-[#DDD8E8]/80 shadow-sm space-y-8 premium-card"
+          >
             <div className="space-y-2">
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
                 CASE STUDIES
@@ -82,7 +111,10 @@ export default function AboutPage() {
             </div>
 
             {/* Nested Substation Card */}
-            <div className="bg-[#F6F3FC] rounded-2xl p-6 border border-[#ECE7F5] space-y-3">
+            <div
+              data-gsap="scale-up"
+              className="bg-[#F6F3FC] rounded-2xl p-6 border border-[#ECE7F5] space-y-3 transition-all duration-300 hover:border-[#DDD5EF]"
+            >
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-2.5 py-0.5 rounded-md bg-[#4F378A] text-white text-[10px] font-bold">
                   ENERGY &amp; UTILITIES
@@ -114,11 +146,18 @@ export default function AboutPage() {
             SECTION 3: MISSION STATEMENT
            ========================================================================= */}
         <section className="py-24 px-6 max-w-5xl mx-auto text-center space-y-6">
-          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
+          <span
+            data-gsap="fade-up"
+            className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]"
+          >
             OUR MISSION
           </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.15] max-w-4xl mx-auto">
+          <h2
+            data-gsap="fade-up"
+            data-gsap-delay="0.1"
+            className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.15] max-w-4xl mx-auto"
+          >
             To set a new standard<br />
             for <span className="italic font-light text-[#6750A4]">machine identity</span> and<br />
             human access, so the<br />
@@ -127,7 +166,11 @@ export default function AboutPage() {
             compromise.
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-[#625F6B] max-w-2xl mx-auto leading-relaxed pt-2">
+          <p
+            data-gsap="fade-up"
+            data-gsap-delay="0.18"
+            className="text-xs sm:text-sm md:text-base text-[#625F6B] max-w-2xl mx-auto leading-relaxed pt-2"
+          >
             Privitty is an operational technology security platform dedicated to replacing perimeter-based models with verified machine and human identity, ensuring that every connection in critical infrastructure is session-scoped, cryptographic, and sovereign.
           </p>
         </section>
@@ -136,7 +179,7 @@ export default function AboutPage() {
             SECTION 4: SIX PRINCIPLES
            ========================================================================= */}
         <section id="principles" className="py-20 px-6 max-w-5xl mx-auto border-t border-[#DDD8E8]">
-          <div className="space-y-3 mb-12">
+          <div data-gsap="fade-up" className="space-y-3 mb-12">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               GUIDING VALUES
             </span>
@@ -148,9 +191,13 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            data-gsap="stagger"
+            data-gsap-stagger="0.08"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
             {/* Principle 01 */}
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5 premium-card">
               <div className="text-xs font-bold text-[#6750A4]">01</div>
               <h3 className="text-base font-bold text-[#17151D] font-headline">Identity over Network</h3>
               <p className="text-xs text-[#625F6B] leading-relaxed">
@@ -159,7 +206,7 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 02 */}
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5 premium-card">
               <div className="text-xs font-bold text-[#6750A4]">02</div>
               <h3 className="text-base font-bold text-[#17151D] font-headline">Cryptographic Non-Repudiation</h3>
               <p className="text-xs text-[#625F6B] leading-relaxed">
@@ -168,7 +215,7 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 03 */}
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5 premium-card">
               <div className="text-xs font-bold text-[#6750A4]">03</div>
               <h3 className="text-base font-bold text-[#17151D] font-headline">Zero Open Inbound Ports</h3>
               <p className="text-xs text-[#625F6B] leading-relaxed">
@@ -177,7 +224,7 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 04 */}
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5 premium-card">
               <div className="text-xs font-bold text-[#6750A4]">04</div>
               <h3 className="text-base font-bold text-[#17151D] font-headline">Ephemeral by Default</h3>
               <p className="text-xs text-[#625F6B] leading-relaxed">
@@ -186,7 +233,7 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 05 */}
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5 premium-card">
               <div className="text-xs font-bold text-[#6750A4]">05</div>
               <h3 className="text-base font-bold text-[#17151D] font-headline">Hardware Root of Trust</h3>
               <p className="text-xs text-[#625F6B] leading-relaxed">
@@ -195,7 +242,7 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 06 */}
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5 premium-card">
               <div className="text-xs font-bold text-[#6750A4]">06</div>
               <h3 className="text-base font-bold text-[#17151D] font-headline">User Sovereignty</h3>
               <p className="text-xs text-[#625F6B] leading-relaxed">
@@ -209,7 +256,7 @@ export default function AboutPage() {
             SECTION 5: THE TEAM
            ========================================================================= */}
         <section id="team" className="py-20 px-6 max-w-5xl mx-auto border-t border-[#DDD8E8]">
-          <div className="space-y-4 mb-12">
+          <div data-gsap="fade-up" className="space-y-4 mb-12">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               THE TEAM
             </span>
@@ -227,19 +274,23 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            data-gsap="stagger"
+            data-gsap-stagger="0.1"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
             {/* Team Member 1 */}
-            <div className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between">
+            <div data-gsap-item className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline">Milind Deore</h3>
+                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Milind Deore</h3>
                   <p className="text-[11px] font-semibold text-[#6750A4]">CEO</p>
                 </div>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#DFD8F0] flex items-center justify-center transition-colors"
+                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
                   aria-label="LinkedIn profile"
                 >
                   <LinkedInIcon className="w-3.5 h-3.5" />
@@ -251,23 +302,23 @@ export default function AboutPage() {
                   src="/milind.png"
                   alt="Milind Deore - CEO"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
               </div>
             </div>
 
             {/* Team Member 2 */}
-            <div className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between">
+            <div data-gsap-item className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline">Ashish Gupta</h3>
+                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Ashish Gupta</h3>
                   <p className="text-[11px] font-semibold text-[#6750A4]">COO</p>
                 </div>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#DFD8F0] flex items-center justify-center transition-colors"
+                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
                   aria-label="LinkedIn profile"
                 >
                   <LinkedInIcon className="w-3.5 h-3.5" />
@@ -279,23 +330,23 @@ export default function AboutPage() {
                   src="/ashish.png"
                   alt="Ashish Gupta - COO"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
               </div>
             </div>
 
             {/* Team Member 3 */}
-            <div className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between">
+            <div data-gsap-item className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline">Girish Jadhav</h3>
+                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Girish Jadhav</h3>
                   <p className="text-[11px] font-semibold text-[#6750A4]">VP of Product</p>
                 </div>
                 <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#DFD8F0] flex items-center justify-center transition-colors"
+                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
                   aria-label="LinkedIn profile"
                 >
                   <LinkedInIcon className="w-3.5 h-3.5" />
@@ -307,7 +358,7 @@ export default function AboutPage() {
                   src="/girish.png"
                   alt="Girish Jadhav - VP of Product"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
               </div>
             </div>
@@ -318,7 +369,7 @@ export default function AboutPage() {
             SECTION 6: PRECISION VS BASIC COMPARISON
            ========================================================================= */}
         <section className="py-20 px-6 max-w-4xl mx-auto border-t border-[#DDD8E8]">
-          <div className="text-center space-y-2 mb-12">
+          <div data-gsap="fade-up" className="text-center space-y-2 mb-12">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               COMPARISON
             </span>
@@ -330,9 +381,13 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+          <div
+            data-gsap="stagger"
+            data-gsap-stagger="0.12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch"
+          >
             {/* Privitty Card */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-[#DDD8E8] shadow-md flex flex-col justify-between space-y-6">
+            <div data-gsap-item className="bg-white rounded-3xl p-7 sm:p-8 border border-[#DDD8E8] shadow-md flex flex-col justify-between space-y-6 premium-card">
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-[#DDD8E8]">
                   <span className="text-lg font-bold font-headline text-[#17151D]">PRIVITTY</span>
@@ -375,7 +430,7 @@ export default function AboutPage() {
 
               <a
                 href="/#demo"
-                className="w-full py-3 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                className="w-full py-3 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm interactive-btn"
               >
                 <span>Get Started</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -383,7 +438,7 @@ export default function AboutPage() {
             </div>
 
             {/* Legacy VPNs Card */}
-            <div className="bg-[#F6F3FC] rounded-3xl p-7 sm:p-8 border border-[#ECE7F5] flex flex-col justify-between space-y-6">
+            <div data-gsap-item className="bg-[#F6F3FC] rounded-3xl p-7 sm:p-8 border border-[#ECE7F5] flex flex-col justify-between space-y-6 premium-card">
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-[#DDD8E8]/70">
                   <span className="text-lg font-bold font-headline text-gray-500">Legacy VPNs</span>
@@ -437,8 +492,12 @@ export default function AboutPage() {
             SECTION 7: CLOSING CTA WITH CONCENTRIC CIRCLES
            ========================================================================= */}
         <section className="relative py-28 md:py-36 px-6 overflow-hidden flex flex-col items-center justify-center text-center">
-          {/* Concentric Circular Background Patterns */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          {/* Concentric Circular Background Patterns with subtle parallax & ambient breath */}
+          <div
+            data-gsap="parallax"
+            data-gsap-speed="0.2"
+            className="absolute inset-0 flex items-center justify-center pointer-events-none ambient-concentric"
+          >
             {/* Center soft glow */}
             <div className="absolute w-[380px] h-[380px] bg-white/70 rounded-full blur-2xl"></div>
 
@@ -456,35 +515,50 @@ export default function AboutPage() {
           </div>
 
           {/* Top Pill Badge */}
-          <div className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EAE5F5] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A]"></span>
+          <div
+            data-gsap="fade-up"
+            className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EAE5F5] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A] animate-pulse"></span>
             <span>READY TO SET THE NEW STANDARD?</span>
           </div>
 
           {/* Headline */}
-          <h2 className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.12] max-w-3xl mx-auto">
+          <h2
+            data-gsap="fade-up"
+            data-gsap-delay="0.1"
+            className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.12] max-w-3xl mx-auto"
+          >
             &ldquo;Give every machine an{" "}
             <span className="italic font-light text-[#6750A4]">identity</span>. Give every engineer verified{" "}
             <span className="italic font-light text-[#6750A4]">access</span>.&rdquo;
           </h2>
 
           {/* Subtitle */}
-          <p className="relative z-10 text-xs sm:text-sm md:text-base text-[#625F6B] max-w-xl mx-auto leading-relaxed mt-6">
+          <p
+            data-gsap="fade-up"
+            data-gsap-delay="0.2"
+            className="relative z-10 text-xs sm:text-sm md:text-base text-[#625F6B] max-w-xl mx-auto leading-relaxed mt-6"
+          >
             See how Privitty sets the new standard for machine identity and human access, software only, deployed on your existing infrastructure in hours.
           </p>
 
           {/* Action Buttons */}
-          <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 pt-8">
+          <div
+            data-gsap="fade-up"
+            data-gsap-delay="0.28"
+            className="relative z-10 flex flex-wrap items-center justify-center gap-3 pt-8"
+          >
             <a
               href="/#demo"
-              className="px-6 py-3 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white font-semibold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5 group"
+              className="px-6 py-3 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white font-semibold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5 group interactive-btn"
             >
               <span>Book a Demo</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href="/#architecture"
-              className="px-6 py-3 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] font-semibold text-xs sm:text-sm shadow-xs transition-all"
+              className="px-6 py-3 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] font-semibold text-xs sm:text-sm shadow-xs transition-all interactive-btn"
             >
               Whitepaper
             </a>

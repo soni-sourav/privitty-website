@@ -14,42 +14,62 @@ export default function ProductPage() {
             HERO SECTION
            ========================================================================= */}
         <section className="pt-20 pb-20 px-6 max-w-7xl mx-auto text-center">
-          <div className="inline-block text-xs font-bold uppercase tracking-widest text-[#6750A4] mb-6">
+          <div
+            data-gsap="fade-up"
+            className="inline-block text-xs font-bold uppercase tracking-widest text-[#6750A4] mb-6"
+          >
             EDGE &bull; CONSOLE &bull; SDK &bull; APP
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.08] max-w-4xl mx-auto">
+          <h1
+            data-gsap="fade-up"
+            data-gsap-delay="0.1"
+            className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.08] max-w-4xl mx-auto"
+          >
             Machine identity. Human<br />access.<br />
             <span className="italic font-light text-[#6750A4]">Built into every layer.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[#625F6B] max-w-2xl mx-auto mt-6 leading-relaxed">
+          <p
+            data-gsap="fade-up"
+            data-gsap-delay="0.2"
+            className="text-base sm:text-lg text-[#625F6B] max-w-2xl mx-auto mt-6 leading-relaxed"
+          >
             A complete platform for zero-trust remote access, machine identity lifecycle management, and encrypted data streams across industrial operations.
           </p>
 
           {/* Quick Nav Pills */}
-          <div className="flex flex-wrap justify-center items-center gap-3 mt-8">
+          <div
+            data-gsap="stagger"
+            data-gsap-delay="0.25"
+            data-gsap-stagger="0.08"
+            className="flex flex-wrap justify-center items-center gap-3 mt-8"
+          >
             <a
+              data-gsap-item
               href="#edge"
-              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm interactive-btn"
             >
               Privitty Edge &amp; Watchtower
             </a>
             <a
+              data-gsap-item
               href="#console"
-              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm interactive-btn"
             >
               Identity governance console
             </a>
             <a
+              data-gsap-item
               href="#sdk"
-              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm interactive-btn"
             >
               Privitty Communicator SDK
             </a>
             <a
+              data-gsap-item
               href="#app"
-              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-[#1E1B26] text-white hover:bg-[#2D2938] transition-all text-xs font-semibold shadow-sm interactive-btn"
             >
               Privitty Communicator App
             </a>
@@ -61,7 +81,7 @@ export default function ProductPage() {
            ========================================================================= */}
         <section id="edge" className="py-20 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           {/* Header */}
-          <div className="space-y-3 mb-12">
+          <div data-gsap="fade-up" className="space-y-3 mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               EDGE DEPLOYMENT
             </span>
@@ -76,8 +96,8 @@ export default function ProductPage() {
           {/* Top Block: 2 Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
             {/* Left Column: 2 Stacked Cards + Buttons */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#DDD8E8]/70 shadow-sm space-y-3">
+            <div data-gsap="fade-up" className="lg:col-span-6 space-y-6">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#DDD8E8]/70 shadow-sm space-y-3 premium-card">
                 <div className="w-10 h-10 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="4" y="4" width="16" height="16" rx="2" />
@@ -96,7 +116,7 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#DDD8E8]/70 shadow-sm space-y-3">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#DDD8E8]/70 shadow-sm space-y-3 premium-card">
                 <div className="w-10 h-10 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14" />
@@ -114,13 +134,13 @@ export default function ProductPage() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href="#architecture"
-                  className="px-5 py-2.5 rounded-xl bg-[#ECE7F6] hover:bg-[#DFD8F0] text-[#17151D] text-xs font-semibold transition-all"
+                  className="px-5 py-2.5 rounded-xl bg-[#ECE7F6] hover:bg-[#DFD8F0] text-[#17151D] text-xs font-semibold transition-all interactive-btn"
                 >
                   Get Technical Specs
                 </a>
                 <a
                   href="#demo"
-                  className="px-5 py-2.5 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white text-xs font-semibold shadow-md transition-all"
+                  className="px-5 py-2.5 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white text-xs font-semibold shadow-md transition-all interactive-btn"
                 >
                   Deploy Edge Daemon
                 </a>
@@ -128,8 +148,8 @@ export default function ProductPage() {
             </div>
 
             {/* Right Column: Console Mockup Card */}
-            <div className="lg:col-span-6">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDD8E8] shadow-lg space-y-5">
+            <div data-gsap="scale-up" className="lg:col-span-6">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDD8E8] shadow-lg space-y-5 premium-card">
                 {/* Console Header */}
                 <div className="flex items-center justify-between pb-4 border-b border-[#DDD8E8]">
                   <div className="flex items-center gap-2">
@@ -194,7 +214,7 @@ export default function ProductPage() {
                   <span className="text-[11px] text-[#625F6B]">Watchtower Agent v2.4.1 &mdash; Operational</span>
                   <button
                     type="button"
-                    className="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-sm transition-colors"
+                    className="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-sm transition-colors interactive-btn cursor-pointer"
                   >
                     Revoke All
                   </button>
@@ -204,8 +224,12 @@ export default function ProductPage() {
           </div>
 
           {/* Bottom 6 Sub-Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+          <div
+            data-gsap="stagger"
+            data-gsap-stagger="0.08"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+          >
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="11" rx="2" />
@@ -218,7 +242,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14" />
@@ -231,7 +255,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10" />
@@ -244,60 +268,60 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <polyline points="14 2 14 8 20 8" />
                   <line x1="16" y1="13" x2="8" y2="13" />
                   <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
                 </svg>
               </div>
-              <h4 className="font-bold text-sm text-[#17151D] font-headline">Protocol Inspection</h4>
+              <h4 className="font-bold text-sm text-[#17151D] font-headline">Modbus &amp; OPC-UA Inspection</h4>
               <p className="text-xs text-[#625F6B] leading-relaxed">
-                Deep industrial protocol parsing for Modbus, Ethernet/IP, OPC UA, and S7 to enforce command-level granularity.
+                Deep protocol packet inspection validates industrial payloads down to command function codes, preventing out-of-range PLC writes.
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
                 </svg>
               </div>
-              <h4 className="font-bold text-sm text-[#17151D] font-headline">Software-Only or DIN-Rail</h4>
+              <h4 className="font-bold text-sm text-[#17151D] font-headline">Instant Revocation (&lt;1s)</h4>
               <p className="text-xs text-[#625F6B] leading-relaxed">
-                Runs as a ~20 MB Docker container or native Linux service on any industrial PC, gateway, or optional hardened DIN-rail device.
+                Revoke any active session or compromised device certificate globally across your fleet in under one second.
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-                  <path d="m9 12 2 2 4-4" />
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                 </svg>
               </div>
-              <h4 className="font-bold text-sm text-[#17151D] font-headline">IEC 62443 Compliance Ready</h4>
+              <h4 className="font-bold text-sm text-[#17151D] font-headline">Zero Hardware Footprint</h4>
               <p className="text-xs text-[#625F6B] leading-relaxed">
-                Architected to meet the strictest industrial cybersecurity requirements for zones, conduits, and least-privilege remote access.
+                Deploys as a lightweight container or native binary on existing industrial PCs (IPC, Raspberry Pi, Debian, Windows IoT).
               </p>
             </div>
           </div>
 
           {/* Section Action Buttons */}
-          <div className="flex items-center justify-center gap-3 mt-10">
+          <div data-gsap="fade-up" className="flex items-center justify-center gap-3 mt-10">
             <a
               href="#demo"
-              className="px-6 py-2.5 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white text-xs font-semibold shadow-sm transition-all"
+              className="px-6 py-2.5 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white text-xs font-semibold shadow-sm transition-all interactive-btn"
             >
               Schedule Demo
             </a>
             <a
               href="#architecture"
-              className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all"
+              className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all interactive-btn"
             >
               Read Whitepaper
             </a>
@@ -309,7 +333,7 @@ export default function ProductPage() {
            ========================================================================= */}
         <section id="console" className="py-20 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           {/* Header */}
-          <div className="space-y-3 mb-12">
+          <div data-gsap="fade-up" className="space-y-3 mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               CENTRALIZED CONTROL
             </span>
@@ -323,8 +347,8 @@ export default function ProductPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Fleet Mockup Card */}
-            <div className="lg:col-span-6">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDD8E8] shadow-lg space-y-4">
+            <div data-gsap="scale-up" className="lg:col-span-6">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDD8E8] shadow-lg space-y-4 premium-card">
                 <div className="flex items-center justify-between pb-3 border-b border-[#DDD8E8]">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -388,8 +412,12 @@ export default function ProductPage() {
             </div>
 
             {/* Right Column: 4 Cards (2x2 grid) */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs">
+            <div
+              data-gsap="stagger"
+              data-gsap-stagger="0.08"
+              className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              <div data-gsap-item className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs premium-card">
                 <div className="w-8 h-8 rounded-lg bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -404,7 +432,7 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs">
+              <div data-gsap-item className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs premium-card">
                 <div className="w-8 h-8 rounded-lg bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -416,7 +444,7 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs">
+              <div data-gsap-item className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs premium-card">
                 <div className="w-8 h-8 rounded-lg bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10" />
@@ -429,7 +457,7 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs">
+              <div data-gsap-item className="bg-white p-6 rounded-2xl border border-[#DDD8E8]/70 space-y-2.5 shadow-xs premium-card">
                 <div className="w-8 h-8 rounded-lg bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -452,7 +480,7 @@ export default function ProductPage() {
            ========================================================================= */}
         <section id="sdk" className="py-20 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           {/* Header */}
-          <div className="space-y-3 mb-12">
+          <div data-gsap="fade-up" className="space-y-3 mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               DEVELOPER TOOLS
             </span>
@@ -467,7 +495,7 @@ export default function ProductPage() {
           {/* Top Block: 2 Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
             {/* Left Column: Description & Buttons */}
-            <div className="lg:col-span-6 space-y-6">
+            <div data-gsap="fade-up" className="lg:col-span-6 space-y-6">
               <p className="text-sm sm:text-base text-[#625F6B] leading-relaxed">
                 The Privitty Communicator SDK abstracts away the complexity of hardware attestation, mTLS session negotiation, and dynamic cryptographic key rotation into a clean, modern API.
               </p>
@@ -478,13 +506,13 @@ export default function ProductPage() {
               <div className="flex flex-wrap items-center gap-3 pt-4">
                 <a
                   href="#docs"
-                  className="px-5 py-2.5 rounded-xl bg-[#ECE7F6] hover:bg-[#DFD8F0] text-[#17151D] text-xs font-semibold transition-all"
+                  className="px-5 py-2.5 rounded-xl bg-[#ECE7F6] hover:bg-[#DFD8F0] text-[#17151D] text-xs font-semibold transition-all interactive-btn"
                 >
                   SDK Documentation
                 </a>
                 <a
                   href="#demo"
-                  className="px-5 py-2.5 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white text-xs font-semibold shadow-md transition-all flex items-center gap-1.5"
+                  className="px-5 py-2.5 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white text-xs font-semibold shadow-md transition-all flex items-center gap-1.5 interactive-btn"
                 >
                   <span>Get API Keys</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -493,8 +521,8 @@ export default function ProductPage() {
             </div>
 
             {/* Right Column: Code Editor Mockup */}
-            <div className="lg:col-span-6">
-              <div className="bg-[#1E1B26] text-white rounded-2xl p-6 font-mono text-xs shadow-2xl border border-white/10 space-y-3">
+            <div data-gsap="scale-up" className="lg:col-span-6">
+              <div className="bg-[#1E1B26] text-white rounded-2xl p-6 font-mono text-xs shadow-2xl border border-white/10 space-y-3 premium-card">
                 {/* Window header */}
                 <div className="flex items-center justify-between pb-3 border-b border-gray-800">
                   <div className="flex items-center gap-1.5">
@@ -549,8 +577,12 @@ export default function ProductPage() {
           </div>
 
           {/* Bottom 6 Sub-Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+          <div
+            data-gsap="stagger"
+            data-gsap-stagger="0.08"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+          >
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <polyline points="16 18 22 12 16 6" />
@@ -563,7 +595,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="4" y="4" width="16" height="16" rx="2" />
@@ -576,7 +608,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
@@ -588,7 +620,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="4" y1="21" x2="4" y2="14" />
@@ -608,7 +640,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -622,7 +654,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -638,16 +670,16 @@ export default function ProductPage() {
           </div>
 
           {/* Section Action Buttons */}
-          <div className="flex items-center justify-center gap-3 mt-10">
+          <div data-gsap="fade-up" className="flex items-center justify-center gap-3 mt-10">
             <a
               href="#demo"
-              className="px-6 py-2.5 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white text-xs font-semibold shadow-sm transition-all"
+              className="px-6 py-2.5 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white text-xs font-semibold shadow-sm transition-all interactive-btn"
             >
               Schedule Demo
             </a>
             <a
               href="#architecture"
-              className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all"
+              className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all interactive-btn"
             >
               Read Whitepaper
             </a>
@@ -659,7 +691,7 @@ export default function ProductPage() {
            ========================================================================= */}
         <section id="app" className="py-20 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           {/* Header */}
-          <div className="space-y-3 mb-12">
+          <div data-gsap="fade-up" className="space-y-3 mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               ENGINEER ACCESS
             </span>
@@ -674,7 +706,7 @@ export default function ProductPage() {
           {/* Top Block: 2 Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
             {/* Left Column: Description & Buttons */}
-            <div className="lg:col-span-6 space-y-6">
+            <div data-gsap="fade-up" className="lg:col-span-6 space-y-6">
               <p className="text-sm sm:text-base text-[#625F6B] leading-relaxed">
                 Privitty Communicator provides a frictionless experience for internal engineers and third-party OEM technicians. Instead of dealing with clunky VPN clients, IP routing conflicts, and broad network exposure, engineers select authorized machines from a verified directory.
               </p>
@@ -685,13 +717,13 @@ export default function ProductPage() {
               <div className="flex flex-wrap items-center gap-3 pt-4">
                 <a
                   href="#download"
-                  className="px-5 py-2.5 rounded-xl bg-[#ECE7F6] hover:bg-[#DFD8F0] text-[#17151D] text-xs font-semibold transition-all"
+                  className="px-5 py-2.5 rounded-xl bg-[#ECE7F6] hover:bg-[#DFD8F0] text-[#17151D] text-xs font-semibold transition-all interactive-btn"
                 >
                   Download Client
                 </a>
                 <a
                   href="#demo"
-                  className="px-5 py-2.5 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white text-xs font-semibold shadow-md transition-all flex items-center gap-1.5"
+                  className="px-5 py-2.5 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white text-xs font-semibold shadow-md transition-all flex items-center gap-1.5 interactive-btn"
                 >
                   <span>Request Access</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -700,8 +732,8 @@ export default function ProductPage() {
             </div>
 
             {/* Right Column: Communicator App Mockup Card */}
-            <div className="lg:col-span-6">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDD8E8] shadow-lg space-y-4">
+            <div data-gsap="scale-up" className="lg:col-span-6">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDD8E8] shadow-lg space-y-4 premium-card">
                 {/* Header */}
                 <div className="flex items-center justify-between pb-3 border-b border-[#DDD8E8]">
                   <div className="flex items-center gap-2">
@@ -742,7 +774,7 @@ export default function ProductPage() {
                     <span className="text-amber-300 font-bold font-mono">Time Remaining: 42m 18s</span>
                     <button
                       type="button"
-                      className="px-3 py-1 bg-white/20 hover:bg-white/30 text-white rounded-lg text-[11px] font-semibold transition-colors"
+                      className="px-3 py-1 bg-white/20 hover:bg-white/30 text-white rounded-lg text-[11px] font-semibold transition-colors interactive-btn cursor-pointer"
                     >
                       Disconnect
                     </button>
@@ -752,7 +784,7 @@ export default function ProductPage() {
                 {/* Footer status */}
                 <div className="pt-1 flex items-center justify-between text-xs text-[#625F6B]">
                   <span className="text-[11px]">Audit signature verified &bull; Non-repudiation active</span>
-                  <button type="button" className="text-xs text-[#6750A4] font-bold hover:underline">
+                  <button type="button" className="text-xs text-[#6750A4] font-bold hover:underline cursor-pointer">
                     Session Log
                   </button>
                 </div>
@@ -761,8 +793,12 @@ export default function ProductPage() {
           </div>
 
           {/* Bottom 6 Sub-Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+          <div
+            data-gsap="stagger"
+            data-gsap-stagger="0.08"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+          >
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -776,7 +812,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10" />
@@ -789,7 +825,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
@@ -802,7 +838,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <polyline points="4 17 10 11 4 5" />
@@ -815,7 +851,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M23 7 16 12 23 17 23 7Z" />
@@ -828,7 +864,7 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <div className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs">
+            <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 space-y-3 shadow-xs premium-card">
               <div className="w-9 h-9 rounded-xl bg-[#ECE7F6] text-[#553C9A] flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -845,16 +881,16 @@ export default function ProductPage() {
           </div>
 
           {/* Section Action Buttons */}
-          <div className="flex items-center justify-center gap-3 mt-10">
+          <div data-gsap="fade-up" className="flex items-center justify-center gap-3 mt-10">
             <a
               href="#demo"
-              className="px-6 py-2.5 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white text-xs font-semibold shadow-sm transition-all"
+              className="px-6 py-2.5 rounded-xl bg-[#1E1B26] hover:bg-[#2D2938] text-white text-xs font-semibold shadow-sm transition-all interactive-btn"
             >
               Schedule Demo
             </a>
             <a
               href="#architecture"
-              className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all"
+              className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all interactive-btn"
             >
               Read Whitepaper
             </a>
@@ -866,7 +902,11 @@ export default function ProductPage() {
            ========================================================================= */}
         <section className="relative py-28 md:py-36 px-6 overflow-hidden flex flex-col items-center justify-center text-center">
           {/* Concentric Circular Background Patterns */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            data-gsap="parallax"
+            data-gsap-speed="0.2"
+            className="absolute inset-0 flex items-center justify-center pointer-events-none ambient-concentric"
+          >
             {/* Center soft glow */}
             <div className="absolute w-[380px] h-[380px] bg-white/70 rounded-full blur-2xl"></div>
 
@@ -884,35 +924,50 @@ export default function ProductPage() {
           </div>
 
           {/* Top Pill Badge */}
-          <div className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EAE5F5] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A]"></span>
+          <div
+            data-gsap="fade-up"
+            className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EAE5F5] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A] animate-pulse"></span>
             <span>READY TO SET THE NEW STANDARD?</span>
           </div>
 
           {/* Headline */}
-          <h2 className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.12] max-w-3xl mx-auto">
+          <h2
+            data-gsap="fade-up"
+            data-gsap-delay="0.1"
+            className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.12] max-w-3xl mx-auto"
+          >
             &ldquo;Give every machine an{" "}
             <span className="italic font-light text-[#6750A4]">identity</span>. Give every engineer verified{" "}
             <span className="italic font-light text-[#6750A4]">access</span>.&rdquo;
           </h2>
 
           {/* Subtitle */}
-          <p className="relative z-10 text-xs sm:text-sm md:text-base text-[#625F6B] max-w-xl mx-auto leading-relaxed mt-6">
+          <p
+            data-gsap="fade-up"
+            data-gsap-delay="0.2"
+            className="relative z-10 text-xs sm:text-sm md:text-base text-[#625F6B] max-w-xl mx-auto leading-relaxed mt-6"
+          >
             See how Privitty sets the new standard for machine identity and human access, software only, deployed on your existing infrastructure in hours.
           </p>
 
           {/* Action Buttons */}
-          <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 pt-8">
+          <div
+            data-gsap="fade-up"
+            data-gsap-delay="0.28"
+            className="relative z-10 flex flex-wrap items-center justify-center gap-3 pt-8"
+          >
             <a
               href="/#demo"
-              className="px-6 py-3 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white font-semibold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5 group"
+              className="px-6 py-3 rounded-xl bg-[#4F378A] hover:bg-[#432E76] text-white font-semibold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5 group interactive-btn"
             >
               <span>Book a Demo</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href="/#architecture"
-              className="px-6 py-3 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] font-semibold text-xs sm:text-sm shadow-xs transition-all"
+              className="px-6 py-3 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] font-semibold text-xs sm:text-sm shadow-xs transition-all interactive-btn"
             >
               Whitepaper
             </a>

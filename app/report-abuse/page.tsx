@@ -25,8 +25,9 @@ export default function ReportAbusePage() {
       <main className="flex-1 py-16 px-6 max-w-7xl mx-auto w-full">
         {/* HEADER */}
         <div className="grid md:grid-cols-12 gap-8 items-start mb-12">
-          <div className="md:col-span-8 space-y-4">
+          <div data-gsap="fade-up" className="md:col-span-8 space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D2D2F3]/60 border border-[#DDD8E8] text-xs font-semibold text-[#4f378a]">
+              <span className="w-2 h-2 rounded-full bg-[#6750A4] animate-pulse"></span>
               Security Governance &amp; Incident Protocol &bull; Last updated 20 Aug 2026
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-[#17151D] font-headline">
@@ -37,7 +38,11 @@ export default function ReportAbusePage() {
             </p>
           </div>
 
-          <div className="md:col-span-4 bg-white p-6 rounded-3xl border border-[#DDD8E8] shadow-sm space-y-2">
+          <div
+            data-gsap="scale-up"
+            data-gsap-delay="0.15"
+            className="md:col-span-4 bg-white p-6 rounded-3xl border border-[#DDD8E8] shadow-sm space-y-2 premium-card"
+          >
             <div className="text-[10px] font-bold text-[#6750A4] uppercase tracking-wider">SIRT Response Desk</div>
             <div className="text-2xl font-extrabold text-[#17151D] font-headline">Target SLA &le; 48h</div>
             <div className="text-xs text-[#625F6B]">Cryptographic non-repudiation audit logged for all incoming security tickets.</div>
@@ -49,7 +54,10 @@ export default function ReportAbusePage() {
           {/* LEFT COLUMN: Scope & Direct Email */}
           <div className="md:col-span-5 space-y-8">
             {/* SCOPE BOX */}
-            <div className="bg-[#D2D2F3]/30 p-8 rounded-3xl border border-[#DDD8E8] space-y-6">
+            <div
+              data-gsap="fade-up"
+              className="bg-[#D2D2F3]/30 p-8 rounded-3xl border border-[#DDD8E8] space-y-6"
+            >
               <div className="flex items-center gap-2 text-xs font-bold text-[#6750A4] uppercase tracking-wider">
                 <span className="w-6 h-6 rounded-lg bg-[#D2D2F3] flex items-center justify-center text-[#4f378a]">
                   <ShieldIcon className="w-3.5 h-3.5" />
@@ -61,33 +69,37 @@ export default function ReportAbusePage() {
                 Our zero-trust and machine identity platform enforces strict terms. Flag subdomains engaging in any of the following activities:
               </p>
 
-              <div className="space-y-3">
-                <div className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1">
+              <div
+                data-gsap="stagger"
+                data-gsap-stagger="0.06"
+                className="space-y-3"
+              >
+                <div data-gsap-item className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1 premium-card">
                   <div className="font-bold text-xs text-[#17151D]">Phishing or fraud</div>
                   <div className="text-[11px] text-[#625F6B]">Deceptive credential harvesting or fraudulent impersonation.</div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1">
+                <div data-gsap-item className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1 premium-card">
                   <div className="font-bold text-xs text-[#17151D]">Malware or malicious distribution</div>
                   <div className="text-[11px] text-[#625F6B]">Payload hosting, command-and-control server hosting, or trojans.</div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1">
+                <div data-gsap-item className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1 premium-card">
                   <div className="font-bold text-xs text-[#17151D]">Spam or unauthorized bulk messaging</div>
                   <div className="text-[11px] text-[#625F6B]">Automated unsolicited commercial or volumetric abuse.</div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1">
+                <div data-gsap-item className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1 premium-card">
                   <div className="font-bold text-xs text-[#17151D]">Unauthorized access or attacks</div>
                   <div className="text-[11px] text-[#625F6B]">Network scanning, DDoS, brute force, or OT infiltration attempts.</div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1">
+                <div data-gsap-item className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1 premium-card">
                   <div className="font-bold text-xs text-[#17151D]">Illegal content</div>
                   <div className="text-[11px] text-[#625F6B]">Unlawful material violating statutory safety standards.</div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1">
+                <div data-gsap-item className="bg-white p-4 rounded-2xl border border-[#DDD8E8] space-y-1 premium-card">
                   <div className="font-bold text-xs text-[#17151D]">Other violations of Terms of Service</div>
                   <div className="text-[11px] text-[#625F6B]">Breaches of acceptable resource usage and customer covenants.</div>
                 </div>
@@ -95,12 +107,15 @@ export default function ReportAbusePage() {
             </div>
 
             {/* DIRECT EMAIL INGESTION */}
-            <div className="bg-white p-6 rounded-3xl border border-[#DDD8E8] space-y-3">
+            <div
+              data-gsap="fade-up"
+              className="bg-white p-6 rounded-3xl border border-[#DDD8E8] space-y-3 premium-card"
+            >
               <div className="text-xs font-bold uppercase text-[#6750A4]">DIRECT EMAIL INGESTION</div>
               <div className="text-xs text-[#625F6B]">Primary reporting mailbox:</div>
               <a
                 href="mailto:abuse@privittytech.com"
-                className="text-base font-bold text-[#6750A4] underline hover:text-[#57418F] inline-flex items-center gap-1.5"
+                className="text-base font-bold text-[#6750A4] underline hover:text-[#57418F] inline-flex items-center gap-1.5 transition-colors"
               >
                 abuse@privittytech.com
                 <ArrowRight className="w-4 h-4 inline" />
@@ -113,7 +128,11 @@ export default function ReportAbusePage() {
 
           {/* RIGHT COLUMN: Direct Ingestion Form */}
           <div className="md:col-span-7 space-y-8">
-            <div className="bg-white p-8 md:p-10 rounded-3xl border border-[#DDD8E8] shadow-lg space-y-6">
+            <div
+              data-gsap="fade-up"
+              data-gsap-delay="0.1"
+              className="bg-white p-8 md:p-10 rounded-3xl border border-[#DDD8E8] shadow-lg space-y-6"
+            >
               <div className="flex justify-between items-center pb-4 border-b border-[#DDD8E8]">
                 <div>
                   <div className="text-xs font-bold text-[#6750A4] uppercase tracking-wider">DIRECT INGESTION FORM</div>
@@ -146,7 +165,7 @@ export default function ReportAbusePage() {
                       value={targetSubdomain}
                       onChange={(e) => setTargetSubdomain(e.target.value)}
                       placeholder="e.g. customer1.privitty.cloud"
-                      className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4]"
+                      className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4] transition-colors"
                     />
                     <div className="text-[11px] text-gray-500 mt-1">Must reside on the privitty.cloud domain namespace.</div>
                   </div>
@@ -158,7 +177,7 @@ export default function ReportAbusePage() {
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4]"
+                      className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4] transition-colors"
                     >
                       <option value="phishing">Phishing or Deceptive Credential Harvesting</option>
                       <option value="malware">Malware / Command &amp; Control Hosting</option>
@@ -179,7 +198,7 @@ export default function ReportAbusePage() {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       placeholder="Detail the specific malicious actions, timestamps, affected IP targets, or anomalous patterns..."
-                      className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4]"
+                      className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4] transition-colors"
                     ></textarea>
                   </div>
 
@@ -188,8 +207,8 @@ export default function ReportAbusePage() {
                     <label className="block text-xs font-bold text-[#17151D] mb-1.5">
                       Supporting Evidence &amp; Logs
                     </label>
-                    <div className="border-2 border-dashed border-[#DDD8E8] rounded-2xl p-6 text-center bg-[#F8F5FF] hover:border-[#6750A4] transition-colors cursor-pointer space-y-2">
-                      <div className="w-10 h-10 rounded-full bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center mx-auto">
+                    <div className="border-2 border-dashed border-[#DDD8E8] rounded-2xl p-6 text-center bg-[#F8F5FF] hover:border-[#6750A4] transition-all cursor-pointer space-y-2 group">
+                      <div className="w-10 h-10 rounded-full bg-[#D2D2F3] text-[#4f378a] flex items-center justify-center mx-auto group-hover:scale-105 transition-transform">
                         <FileTextIcon className="w-5 h-5 text-[#4f378a]" />
                       </div>
                       <div className="text-xs font-bold text-[#17151D]">
@@ -210,7 +229,7 @@ export default function ReportAbusePage() {
                         value={contactEmail}
                         onChange={(e) => setContactEmail(e.target.value)}
                         placeholder="reporter@company.com"
-                        className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4]"
+                        className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4] transition-colors"
                       />
                     </div>
 
@@ -221,7 +240,7 @@ export default function ReportAbusePage() {
                       <select
                         value={urgency}
                         onChange={(e) => setUrgency(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4]"
+                        className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4] transition-colors"
                       >
                         <option>Standard Priority (2 Business Days)</option>
                         <option>High Priority (24 Hours)</option>
@@ -232,7 +251,7 @@ export default function ReportAbusePage() {
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-[#6750A4] text-white font-bold text-sm hover:bg-[#57418F] shadow-md transition-all flex items-center justify-center gap-2"
+                    className="w-full py-4 rounded-xl bg-[#6750A4] text-white font-bold text-sm hover:bg-[#57418F] shadow-md transition-all flex items-center justify-center gap-2 interactive-btn cursor-pointer"
                   >
                     <span>Submit Abuse Report</span>
                     <ArrowRight className="w-4 h-4" />
@@ -253,7 +272,7 @@ export default function ReportAbusePage() {
                       setTargetSubdomain("");
                       setDescription("");
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-[#6750A4] text-white text-xs font-semibold"
+                    className="px-6 py-2.5 rounded-xl bg-[#6750A4] text-white text-xs font-semibold interactive-btn cursor-pointer"
                   >
                     Submit Another Report
                   </button>
@@ -262,8 +281,11 @@ export default function ReportAbusePage() {
             </div>
 
             {/* WHAT HAPPENS NEXT PROTOCOL */}
-            <div className="bg-[#F8F5FF] p-6 rounded-3xl border border-[#DDD8E8] flex gap-4 items-center">
-              <div className="w-12 h-12 rounded-2xl bg-[#6750A4] text-white flex items-center justify-center shrink-0">
+            <div
+              data-gsap="fade-up"
+              className="bg-[#F8F5FF] p-6 rounded-3xl border border-[#DDD8E8] flex gap-4 items-center premium-card"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-[#6750A4] text-white flex items-center justify-center shrink-0 shadow-xs">
                 <ClockIcon className="w-6 h-6 text-white" />
               </div>
               <div className="space-y-1">
@@ -278,7 +300,10 @@ export default function ReportAbusePage() {
         </div>
 
         {/* BOTTOM BANNER */}
-        <div className="mt-16 p-6 rounded-2xl bg-white border border-[#DDD8E8] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-[#625F6B]">
+        <div
+          data-gsap="fade-in"
+          className="mt-16 p-6 rounded-2xl bg-white border border-[#DDD8E8] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-[#625F6B] premium-card"
+        >
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#6750A4]"></span>
             <span>Cryptographic Traceability &amp; Sovereign OT Access</span>
