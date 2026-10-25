@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BrandTagline from "./components/BrandTagline";
+import SecurityDashboardCard from "./components/SecurityDashboardCard";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -10,6 +12,10 @@ import {
   AlertTriangleIcon,
   KeyIcon,
   ShieldIcon,
+  ShieldCheckIcon,
+  ChipIcon,
+  LayoutIcon,
+  FingerprintIcon,
   LockIcon,
   GlobeIcon,
   FileTextIcon,
@@ -27,101 +33,105 @@ export default function Home() {
         {/* =========================================================================
             SECTION 1: HERO SECTION
            ========================================================================= */}
-        <section className="relative pt-16 pb-24 px-6 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
+        <section className="relative pt-12 sm:pt-16 pb-20 md:pb-24 px-6 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Content */}
-            <div data-gsap="fade-up" className="md:col-span-7 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D2D2F3]/60 border border-[#DDD8E8] text-xs font-semibold text-[#4f378a]">
-                <span className="w-2 h-2 rounded-full bg-[#6750A4] animate-pulse"></span>
-                IDENTITY-FIRST SECURITY FOR OT &amp; INFRASTRUCTURE
+            <div data-gsap="fade-up" className="lg:col-span-7 space-y-6 sm:space-y-8">
+              {/* Brand Tagline */}
+              <div>
+                <BrandTagline />
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-extrabold text-[#17151D] leading-[1.15] font-headline tracking-tight">
-                A new standard for{" "}
-                <span className="italic font-light text-[#6750A4]">machine identity</span>{" "}
-                and <span className="italic font-bold text-[#6750A4]">human access</span>.
+              {/* Headline with bold typography and italic serif emphasis */}
+              <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-extrabold text-[#110E1B] font-headline tracking-[-0.035em] leading-[1.06]">
+                A new standard<br className="hidden sm:inline" />{" "}
+                for{" "}
+                <span className="font-serif italic font-normal text-[#4C3298]">
+                  machine
+                </span>
+                <br className="hidden sm:inline" />{" "}
+                <span className="font-serif italic font-normal text-[#4C3298]">
+                  identity
+                </span>{" "}
+                and<br className="hidden sm:inline" />{" "}
+                human access.
               </h1>
 
-              <p className="text-lg md:text-xl text-[#625F6B] leading-relaxed max-w-2xl font-normal">
-                Privitty gives every operational asset a cryptographic identity and every engineer verified access. No VPN. No hardware. No open ports.
+              {/* Body Text */}
+              <p className="text-base sm:text-lg md:text-[19px] text-[#524E5B] leading-relaxed max-w-xl font-normal">
+                Privitty gives every machine a cryptographic identity and every engineer a verified, revokable channel. No VPN. No firewall rules. No hardware. Just trust between the identities that matter.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
                 <a
                   href="#demo"
-                  className="px-8 py-4 rounded-xl bg-[#6750A4] text-white font-semibold text-base shadow-lg shadow-[#6750A4]/30 hover:bg-[#57418F] transition-all flex items-center gap-2 interactive-btn"
+                  className="px-6 sm:px-7 py-3.5 rounded-xl sm:rounded-2xl bg-[#4A2E80] hover:bg-[#3D236E] text-white font-semibold text-sm sm:text-base shadow-lg shadow-[#4A2E80]/20 transition-all flex items-center justify-center gap-2 interactive-btn"
                 >
-                  <span>Get Started</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Book a Demo</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <a
                   href="#architecture"
-                  className="px-8 py-4 rounded-xl bg-white text-[#17151D] border border-[#DDD8E8] font-semibold text-base hover:bg-[#D2D2F3]/30 transition-all interactive-btn"
+                  className="px-6 sm:px-7 py-3.5 rounded-xl sm:rounded-2xl bg-[#ECE7F5] hover:bg-[#E2DCED] text-[#221C30] font-semibold text-sm sm:text-base transition-all flex items-center justify-center interactive-btn"
                 >
-                  Read Architecture
+                  Whitepaper
                 </a>
               </div>
             </div>
 
-            {/* Right Graphic: Hero Dashboard Mockup */}
-            <div data-gsap="scale-up" data-gsap-delay="0.15" className="md:col-span-5">
-              <div className="bg-white rounded-3xl p-6 border border-[#DDD8E8] shadow-2xl shadow-[#6750A4]/15 space-y-4 premium-card">
-                <div className="flex items-center justify-between pb-3 border-b border-[#DDD8E8]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span className="text-xs font-bold text-[#17151D]">Identity Engine Status</span>
-                  </div>
-                  <span className="text-[10px] bg-[#D2D2F3] text-[#4f378a] px-2.5 py-0.5 rounded-full font-bold uppercase">
-                    Zero Ports Exposed
-                  </span>
-                </div>
-
-                <div className="space-y-3 font-mono text-xs">
-                  <div className="p-3.5 rounded-xl bg-[#F8F5FF] border border-[#DDD8E8] space-y-1">
-                    <div className="text-[#625F6B] text-[10px] uppercase font-sans font-bold">Machine Identity</div>
-                    <div className="text-[#6750A4] font-bold">plc-assembly-line-09.local</div>
-                    <div className="text-gray-500 text-[11px]">TPM 2.0 Signed &bull; Validated mTLS</div>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-[#F8F5FF] border border-[#DDD8E8] space-y-1">
-                    <div className="text-[#625F6B] text-[10px] uppercase font-sans font-bold">Human Access Stream</div>
-                    <div className="text-[#17151D] font-bold">engineer.schmidt@privitty.cloud</div>
-                    <div className="flex justify-between items-center text-[11px] pt-1">
-                      <span className="text-emerald-600 font-bold">Ephemeral Session (12m left)</span>
-                      <span className="px-2 py-0.5 bg-red-100 text-red-700 font-bold text-[10px] rounded uppercase">REVOCABLE</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-2 text-center text-[11px] text-[#625F6B] border-t border-[#DDD8E8]">
-                  Cryptographic Non-Repudiation Audit Log Active
-                </div>
-              </div>
+            {/* Right Graphic: Security Dashboard Card */}
+            <div data-gsap="scale-up" data-gsap-delay="0.15" className="lg:col-span-5">
+              <SecurityDashboardCard />
             </div>
           </div>
 
-          {/* Bottom Pill Bar */}
+          {/* Bottom Feature Strip with matching icons */}
           <div
-            data-gsap="stagger"
-            data-gsap-delay="0.2"
-            data-gsap-stagger="0.08"
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-12 border-t border-[#DDD8E8]"
+            data-gsap="fade-up"
+            data-gsap-delay="0.25"
+            className="mt-14 sm:mt-18 p-5 sm:p-6 rounded-[24px] bg-[#F4EFFB]/90 border border-[#E8E2F4] shadow-xs"
           >
-            <div data-gsap-item className="p-4 rounded-2xl bg-white/80 border border-[#DDD8E8] flex items-center gap-3 shadow-sm premium-card">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6750A4]"></span>
-              <span className="text-xs font-bold text-[#17151D]">Zero-Trust Access</span>
-            </div>
-            <div data-gsap-item className="p-4 rounded-2xl bg-white/80 border border-[#DDD8E8] flex items-center gap-3 shadow-sm premium-card">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6750A4]"></span>
-              <span className="text-xs font-bold text-[#17151D]">Machine Identity</span>
-            </div>
-            <div data-gsap-item className="p-4 rounded-2xl bg-white/80 border border-[#DDD8E8] flex items-center gap-3 shadow-sm premium-card">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6750A4]"></span>
-              <span className="text-xs font-bold text-[#17151D]">Sovereign Encryption</span>
-            </div>
-            <div data-gsap-item className="p-4 rounded-2xl bg-white/80 border border-[#DDD8E8] flex items-center gap-3 shadow-sm premium-card">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6750A4]"></span>
-              <span className="text-xs font-bold text-[#17151D]">Non-repudiable Audit</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+              {/* Feature 1 */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-[#E5DDF5] text-[#503796] flex items-center justify-center shrink-0">
+                  <ShieldCheckIcon className="w-4 h-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-[#17151D] tracking-tight">
+                  Human access, always revokable
+                </span>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-[#E5DDF5] text-[#503796] flex items-center justify-center shrink-0">
+                  <ChipIcon className="w-4 h-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-[#17151D] tracking-tight">
+                  No hardware required
+                </span>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-[#E5DDF5] text-[#503796] flex items-center justify-center shrink-0">
+                  <LayoutIcon className="w-4 h-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-[#17151D] tracking-tight">
+                  OEM branding available
+                </span>
+              </div>
+
+              {/* Feature 4 */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-[#E5DDF5] text-[#503796] flex items-center justify-center shrink-0">
+                  <FingerprintIcon className="w-4 h-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-[#17151D] tracking-tight">
+                  Machine identity by default
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -327,7 +337,7 @@ export default function Home() {
               </div>
 
               {/* Monospace Pill Bar */}
-              <div className="mt-8 self-start inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#F0EDF9] border border-[#E3DEF4] text-xs font-mono text-[#2A2438]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] uppercase select-none transition-all">
                 <svg className="w-4 h-4 text-[#4F378A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4.93 19.07a10 10 0 0 1 0-14.14" />
                   <path d="M7.76 16.24a6 6 0 0 1 0-8.48" />
@@ -335,7 +345,7 @@ export default function Home() {
                   <path d="M16.24 7.76a6 6 0 0 1 0 8.48" />
                   <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
                 </svg>
-                <span>SSH / RDP / VNC &bull; Inbound Ports = 0</span>
+                <span>SSH / RDP / VNC / Inbound Ports = 0</span>
               </div>
             </div>
 
@@ -743,7 +753,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="text-xs font-bold text-[#17151D]">Pankaj Garg</div>
-                  <div className="text-[11px] text-[#625F6B]">COO at Qseap</div>
+                  <div className="text-[11px] text-[#625F6B]">CEO at CoreIC</div>
                 </div>
               </div>
             </div>
@@ -770,7 +780,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="text-xs font-bold text-[#17151D]">Dr. Santosh Honnagunti</div>
-                  <div className="text-[11px] text-[#625F6B]">CEO at Tuem Mobility</div>
+                  <div className="text-[11px] text-[#625F6B]">CEO of Tayana Mobility</div>
                 </div>
               </div>
             </div>
@@ -850,9 +860,9 @@ export default function Home() {
           {/* Top Pill Badge */}
           <div
             data-gsap="fade-up"
-            className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EAE5F5] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] uppercase select-none transition-all z-9"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A] animate-pulse"></span>
+            <ShieldIcon className="w-3.5 h-3.5 text-[#503796] shrink-0" />
             <span>READY TO SET THE NEW STANDARD?</span>
           </div>
 
@@ -863,8 +873,8 @@ export default function Home() {
             className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.12] max-w-3xl mx-auto"
           >
             &ldquo;Give every machine an{" "}
-            <span className="italic font-light text-[#6750A4]">identity</span>. Give every engineer verified{" "}
-            <span className="italic font-light text-[#6750A4]">access</span>.&rdquo;
+            <span className="font-serif italic font-normal text-[#4C3298]">identity</span>. Give every engineer verified{" "}
+            <span className="font-serif italic font-normal text-[#4C3298]">access</span>.&rdquo;
           </h2>
 
           {/* Subtitle */}

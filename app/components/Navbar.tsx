@@ -234,15 +234,6 @@ export default function Navbar() {
               Book a Demo
             </button>
 
-            {/* Profile Avatar Button matching reference */}
-            <button
-              onClick={() => setIsDemoModalOpen(true)}
-              className="w-9 h-9 rounded-full bg-[#543C95] text-white flex items-center justify-center hover:bg-[#432E76] transition-colors shadow-xs cursor-pointer"
-              aria-label="User Account"
-            >
-              <UserIcon className="w-4 h-4" />
-            </button>
-
             {/* Mobile Hamburger Button */}
             <button
               type="button"

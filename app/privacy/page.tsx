@@ -2,7 +2,7 @@
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ArrowRight } from "../components/Icons";
+import { ArrowRight, ShieldCheckIcon } from "../components/Icons";
 
 export default function PrivacyPage() {
   return (
@@ -12,9 +12,9 @@ export default function PrivacyPage() {
       <main className="flex-1 py-16 px-6 max-w-7xl mx-auto w-full">
         {/* HEADER */}
         <div data-gsap="fade-up" className="max-w-3xl space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D2D2F3]/60 border border-[#DDD8E8] text-xs font-semibold text-[#4f378a]">
-            <span className="w-2 h-2 rounded-full bg-[#6750A4] animate-pulse"></span>
-            Legal &amp; Compliance &bull; Last updated 20 Aug 2026
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] uppercase select-none transition-all">
+            <ShieldCheckIcon className="w-3.5 h-3.5 text-[#503796] shrink-0" />
+            <span>Legal &amp; Compliance &bull; Last updated 20 Aug 2026</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#17151D] font-headline">
             Privacy Policy
@@ -225,10 +225,10 @@ export default function PrivacyPage() {
               <div className="p-4 rounded-2xl bg-[#F8F5FF] border border-[#DDD8E8] flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
                   <div className="text-xs font-bold uppercase text-[#625F6B]">E-mail Contact</div>
-                  <div className="text-sm font-bold text-[#6750A4]">privacy@privitty.com</div>
+                  <div className="text-sm font-bold text-[#6750A4]">info@privittytech.com</div>
                 </div>
                 <a
-                  href="mailto:privacy@privitty.com"
+                  href="mailto:info@privittytech.com"
                   className="px-6 py-2.5 rounded-xl bg-[#6750A4] text-white text-xs font-semibold hover:bg-[#57418F] transition-all inline-flex items-center gap-1.5 interactive-btn cursor-pointer"
                 >
                   Send Inquiry

@@ -1,11 +1,24 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ArrowRight, ArrowUpRight, CheckIcon, XIcon, LinkedInIcon } from "../components/Icons";
+import BrandTagline from "../components/BrandTagline";
+import { ArrowRight, ArrowUpRight, CheckIcon, XIcon, LinkedInIcon, ShieldIcon } from "../components/Icons";
 
 export default function AboutPage() {
+  const teamSliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollTeam = (direction: -1 | 1) => {
+    const slider = teamSliderRef.current;
+    if (!slider) return;
+    slider.scrollBy({
+      left: direction * slider.clientWidth,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-[#F8F5FF] text-[#17151D]">
       <Navbar />
@@ -14,13 +27,9 @@ export default function AboutPage() {
         {/* =========================================================================
             SECTION 1: HERO SECTION
            ========================================================================= */}
-        <section className="pt-20 pb-16 px-6 max-w-7xl mx-auto text-center">
-          <div
-            data-gsap="fade-up"
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#ECE7F6] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A] animate-pulse"></span>
-            <span>BUILT FOR CRITICAL INFRASTRUCTURE &amp; OPERATIONS</span>
+        <section className="pt-12 sm:pt-16 pb-16 md:pb-20 px-6 max-w-7xl mx-auto text-center">
+          <div data-gsap="fade-up" className="mb-6 flex justify-center">
+            <BrandTagline />
           </div>
 
           <h1
@@ -29,8 +38,8 @@ export default function AboutPage() {
             className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.1] max-w-4xl mx-auto"
           >
             We started with a<br />
-            question <span className="italic font-light text-[#6750A4]">no one in OT</span><br />
-            <span className="italic font-light text-[#6750A4]">was asking.</span>
+            question <span className="font-serif italic font-normal text-[#4C3298]">no one in OT</span><br />
+            <span className="font-serif italic font-normal text-[#4C3298]">was asking.</span>
           </h1>
 
           <p
@@ -46,7 +55,7 @@ export default function AboutPage() {
             data-gsap="stagger"
             data-gsap-delay="0.25"
             data-gsap-stagger="0.1"
-            className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto mt-10"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto mt-12"
           >
             <div data-gsap-item className="bg-white p-5 sm:p-6 rounded-2xl border border-[#DDD8E8]/70 shadow-xs text-center premium-card">
               <div
@@ -76,7 +85,7 @@ export default function AboutPage() {
         {/* =========================================================================
             SECTION 2: PROVEN IMPACT & RESULTS
            ========================================================================= */}
-        <section className="py-12 px-6 max-w-5xl mx-auto">
+        <section className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           <div
             data-gsap="fade-up"
             className="bg-white rounded-3xl p-8 sm:p-12 border border-[#DDD8E8]/80 shadow-sm space-y-8 premium-card"
@@ -145,7 +154,7 @@ export default function AboutPage() {
         {/* =========================================================================
             SECTION 3: MISSION STATEMENT
            ========================================================================= */}
-        <section className="py-24 px-6 max-w-5xl mx-auto text-center space-y-6">
+        <section className="py-20 md:py-24 px-6 max-w-7xl mx-auto text-center space-y-6 border-t border-[#DDD8E8]">
           <span
             data-gsap="fade-up"
             className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]"
@@ -158,18 +167,17 @@ export default function AboutPage() {
             data-gsap-delay="0.1"
             className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.15] max-w-4xl mx-auto"
           >
-            To set a new standard<br />
-            for <span className="italic font-light text-[#6750A4]">machine identity</span> and<br />
-            human access, so the<br />
-            industrial world can<br />
-            connect without<br />
-            compromise.
+            To set a new standard
+            for <span className="font-serif italic font-normal text-[#4C3298]">machine identity</span> and
+            human access, so the
+            industrial world can
+            connect without compromise.
           </h2>
 
           <p
             data-gsap="fade-up"
             data-gsap-delay="0.18"
-            className="text-xs sm:text-sm md:text-base text-[#625F6B] max-w-2xl mx-auto leading-relaxed pt-2"
+            className="text-xs sm:text-sm md:text-base text-[#625F6B] max-w-4xl mx-auto leading-relaxed pt-2"
           >
             Privitty is an operational technology security platform dedicated to replacing perimeter-based models with verified machine and human identity, ensuring that every connection in critical infrastructure is session-scoped, cryptographic, and sovereign.
           </p>
@@ -178,7 +186,7 @@ export default function AboutPage() {
         {/* =========================================================================
             SECTION 4: SIX PRINCIPLES
            ========================================================================= */}
-        <section id="principles" className="py-20 px-6 max-w-5xl mx-auto border-t border-[#DDD8E8]">
+        <section id="principles" className="py-20 md:py-24 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           <div data-gsap="fade-up" className="space-y-3 mb-12">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               GUIDING VALUES
@@ -194,7 +202,7 @@ export default function AboutPage() {
           <div
             data-gsap="stagger"
             data-gsap-stagger="0.08"
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {/* Principle 01 */}
             <div data-gsap-item className="bg-white p-7 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-2.5 premium-card">
@@ -255,7 +263,7 @@ export default function AboutPage() {
         {/* =========================================================================
             SECTION 5: THE TEAM
            ========================================================================= */}
-        <section id="team" className="py-20 px-6 max-w-5xl mx-auto border-t border-[#DDD8E8]">
+        <section id="team" className="py-20 md:py-24 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           <div data-gsap="fade-up" className="space-y-4 mb-12">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               THE TEAM
@@ -274,13 +282,34 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div
-            data-gsap="stagger"
-            data-gsap-stagger="0.1"
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
+          <div className="relative">
+            <div className="flex justify-end gap-2 mb-4">
+              <button
+                type="button"
+                onClick={() => scrollTeam(-1)}
+                aria-label="Previous team members"
+                className="w-10 h-10 rounded-full border border-[#DDD8E8] bg-white text-[#4F378A] hover:bg-[#6750A4] hover:text-white transition-colors flex items-center justify-center"
+              >
+                <span aria-hidden="true" className="text-xl leading-none">‹</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollTeam(1)}
+                aria-label="Next team members"
+                className="w-10 h-10 rounded-full border border-[#DDD8E8] bg-white text-[#4F378A] hover:bg-[#6750A4] hover:text-white transition-colors flex items-center justify-center"
+              >
+                <span aria-hidden="true" className="text-xl leading-none">›</span>
+              </button>
+            </div>
+
+            <div
+              ref={teamSliderRef}
+              data-gsap="stagger"
+              data-gsap-stagger="0.1"
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
             {/* Team Member 1 */}
-            <div data-gsap-item className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
+            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Milind Deore</h3>
@@ -308,7 +337,7 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 2 */}
-            <div data-gsap-item className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
+            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Ashish Gupta</h3>
@@ -336,11 +365,11 @@ export default function AboutPage() {
             </div>
 
             {/* Team Member 3 */}
-            <div data-gsap-item className="bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
+            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Girish Jadhav</h3>
-                  <p className="text-[11px] font-semibold text-[#6750A4]">VP of Product</p>
+                  <p className="text-[11px] font-semibold text-[#6750A4]">Mobile App Developer</p>
                 </div>
                 <a
                   href="https://linkedin.com"
@@ -356,19 +385,104 @@ export default function AboutPage() {
               <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
                 <Image
                   src="/girish.png"
-                  alt="Girish Jadhav - VP of Product"
+                  alt="Girish Jadhav - Mobile App Developer"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+              </div>
+            </div>
+
+            {/* Team Member 4 */}
+            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Sourav Soni</h3>
+                  <p className="text-[11px] font-semibold text-[#6750A4]">Full Stack Developer</p>
+                </div>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
+                  aria-label="LinkedIn profile"
+                >
+                  <LinkedInIcon className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
+                <Image
+                  src="/sourav.png"
+                  alt="Sourav Soni - Full Stack Developer"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+              </div>
+            </div>
+
+            {/* Team Member 5 */}
+            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Tejas Sharma</h3>
+                  <p className="text-[11px] font-semibold text-[#6750A4]">Software Engineer</p>
+                </div>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
+                  aria-label="LinkedIn profile"
+                >
+                  <LinkedInIcon className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
+                <Image
+                  src="/tejas.png"
+                  alt="Tejas Sharma - Software Engineer"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+              </div>
+            </div>
+
+            {/* Team Member 5 */}
+            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Prof. (Dr.) S. R. Dhore</h3>
+                  <p className="text-[11px] font-semibold text-[#6750A4]">Advisor</p>
+                </div>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
+                  aria-label="LinkedIn profile"
+                >
+                  <LinkedInIcon className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
+                <Image
+                  src="/dr-dhore.png"
+                  alt="Prof. (Dr.) S. R. Dhore - Advisor"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
               </div>
             </div>
           </div>
+          </div>
         </section>
 
         {/* =========================================================================
             SECTION 6: PRECISION VS BASIC COMPARISON
            ========================================================================= */}
-        <section className="py-20 px-6 max-w-4xl mx-auto border-t border-[#DDD8E8]">
+        <section className="py-20 md:py-24 px-6 max-w-7xl mx-auto border-t border-[#DDD8E8]">
           <div data-gsap="fade-up" className="text-center space-y-2 mb-12">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#6750A4]">
               COMPARISON
@@ -384,7 +498,7 @@ export default function AboutPage() {
           <div
             data-gsap="stagger"
             data-gsap-stagger="0.12"
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto"
           >
             {/* Privitty Card */}
             <div data-gsap-item className="bg-white rounded-3xl p-7 sm:p-8 border border-[#DDD8E8] shadow-md flex flex-col justify-between space-y-6 premium-card">
@@ -517,9 +631,9 @@ export default function AboutPage() {
           {/* Top Pill Badge */}
           <div
             data-gsap="fade-up"
-            className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EAE5F5] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] uppercase select-none transition-all z-9"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A] animate-pulse"></span>
+            <ShieldIcon className="w-3.5 h-3.5 text-[#503796] shrink-0" />
             <span>READY TO SET THE NEW STANDARD?</span>
           </div>
 
@@ -530,8 +644,8 @@ export default function AboutPage() {
             className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.12] max-w-3xl mx-auto"
           >
             &ldquo;Give every machine an{" "}
-            <span className="italic font-light text-[#6750A4]">identity</span>. Give every engineer verified{" "}
-            <span className="italic font-light text-[#6750A4]">access</span>.&rdquo;
+            <span className="font-serif italic font-normal text-[#4C3298]">identity</span>. Give every engineer verified{" "}
+            <span className="font-serif italic font-normal text-[#4C3298]">access</span>.&rdquo;
           </h2>
 
           {/* Subtitle */}

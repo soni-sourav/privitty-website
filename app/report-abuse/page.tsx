@@ -26,9 +26,9 @@ export default function ReportAbusePage() {
         {/* HEADER */}
         <div className="grid md:grid-cols-12 gap-8 items-start mb-12">
           <div data-gsap="fade-up" className="md:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D2D2F3]/60 border border-[#DDD8E8] text-xs font-semibold text-[#4f378a]">
-              <span className="w-2 h-2 rounded-full bg-[#6750A4] animate-pulse"></span>
-              Security Governance &amp; Incident Protocol &bull; Last updated 20 Aug 2026
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] uppercase select-none transition-all">
+              <ShieldIcon className="w-3.5 h-3.5 text-[#503796] shrink-0" />
+              <span>Security Governance &amp; Incident Protocol &bull; Last updated 20 Aug 2026</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-[#17151D] font-headline">
               Report Abuse

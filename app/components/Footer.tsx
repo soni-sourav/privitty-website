@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { GitHubIcon, YouTubeIcon, LinkedInIcon, XTwitterIcon } from "./Icons";
+import { GitHubIcon, YouTubeIcon, LinkedInIcon, XTwitterIcon, ShieldIcon } from "./Icons";
 
 export default function Footer() {
   const socialLinks = [
@@ -54,9 +54,9 @@ export default function Footer() {
             <p className="text-[#625F6B] text-xs leading-relaxed max-w-sm">
               The identity layer for operational technology. Machine identity by default. Human access, always revocable. No VPN. No hardware. No open ports.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D2D2F3]/60 border border-[#DDD8E8] text-[11px] font-semibold text-[#4f378a]">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              Zero Open Ports &bull; Sovereign OT Architecture
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] select-none transition-all">
+              <ShieldIcon className="w-3.5 h-3.5 text-[#503796] shrink-0" />
+              <span>Zero Open Ports &bull; Sovereign OT Architecture</span>
             </div>
 
             {/* Social Media Links */}

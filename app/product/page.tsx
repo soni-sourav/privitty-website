@@ -2,7 +2,8 @@
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ArrowRight, ArrowUpRight, ZapIcon } from "../components/Icons";
+import BrandTagline from "../components/BrandTagline";
+import { ArrowRight, ArrowUpRight, ZapIcon, ShieldIcon } from "../components/Icons";
 
 export default function ProductPage() {
   return (
@@ -14,11 +15,8 @@ export default function ProductPage() {
             HERO SECTION
            ========================================================================= */}
         <section className="pt-20 pb-20 px-6 max-w-7xl mx-auto text-center">
-          <div
-            data-gsap="fade-up"
-            className="inline-block text-xs font-bold uppercase tracking-widest text-[#6750A4] mb-6"
-          >
-            EDGE &bull; CONSOLE &bull; SDK &bull; APP
+          <div data-gsap="fade-up" className="mb-6 flex justify-center">
+            <BrandTagline />
           </div>
 
           <h1
@@ -27,7 +25,7 @@ export default function ProductPage() {
             className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.08] max-w-4xl mx-auto"
           >
             Machine identity. Human<br />access.<br />
-            <span className="italic font-light text-[#6750A4]">Built into every layer.</span>
+            <span className="font-serif italic font-normal text-[#4C3298]">Built into every layer.</span>
           </h1>
 
           <p
@@ -926,9 +924,9 @@ export default function ProductPage() {
           {/* Top Pill Badge */}
           <div
             data-gsap="fade-up"
-            className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EAE5F5] border border-[#DDD5EF] text-[10px] sm:text-xs font-bold text-[#4F378A] tracking-wider mb-6"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] uppercase select-none transition-all z-9"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#553C9A] animate-pulse"></span>
+            <ShieldIcon className="w-3.5 h-3.5 text-[#503796] shrink-0" />
             <span>READY TO SET THE NEW STANDARD?</span>
           </div>
 
@@ -939,8 +937,8 @@ export default function ProductPage() {
             className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#17151D] font-headline tracking-tight leading-[1.12] max-w-3xl mx-auto"
           >
             &ldquo;Give every machine an{" "}
-            <span className="italic font-light text-[#6750A4]">identity</span>. Give every engineer verified{" "}
-            <span className="italic font-light text-[#6750A4]">access</span>.&rdquo;
+            <span className="font-serif italic font-normal text-[#4C3298]">identity</span>. Give every engineer verified{" "}
+            <span className="font-serif italic font-normal text-[#4C3298]">access</span>.&rdquo;
           </h2>
 
           {/* Subtitle */}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import { Manrope, Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 import ScrollAnimations from "./components/animations/ScrollAnimations";
 
@@ -15,6 +15,12 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const newsreader = Newsreader({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "Privitty — Identity-First Security & Data Sovereignty",
   description: "Enterprise identity-first security, Zero-Trust OT remote access, machine identity management, and encrypted data sovereignty for sovereign infrastructure.",
@@ -28,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${inter.variable} antialiased selection:bg-[#6750a4]/20 selection:text-[#4f378a]`}
+      className={`${manrope.variable} ${inter.variable} ${newsreader.variable} antialiased selection:bg-[#4c3298]/20 selection:text-[#4c3298]`}
     >
       <body className="min-h-screen bg-[#F8F5FF] text-[#17151D] flex flex-col font-sans">
         <ScrollAnimations>
