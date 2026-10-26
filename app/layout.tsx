@@ -22,8 +22,61 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Privitty — Identity-First Security & Data Sovereignty",
-  description: "Enterprise identity-first security, Zero-Trust OT remote access, machine identity management, and encrypted data sovereignty for sovereign infrastructure.",
+  metadataBase: new URL("https://www.privitty.com"),
+
+  title: {
+    default: "Privitty - Machine Identity & Secure Remote Access for OT",
+    template: "%s | Privitty",
+  },
+
+  description:
+    "Privitty gives every machine a cryptographic identity and every engineer verified, revokable access: no VPN, no firewall rules, no hardware. Built for OT.",
+
+  applicationName: "Privitty",
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
+
+  openGraph: {
+    title: "Privitty - Machine Identity & Secure Remote Access for OT",
+    description:
+      "Privitty gives every machine a cryptographic identity and every engineer verified, revokable access: no VPN, no firewall rules, no hardware. Built for OT.",
+    url: "https://www.privitty.com",
+    siteName: "Privitty",
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Privitty - Machine Identity & Secure Remote Access for OT",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Privitty - Machine Identity & Secure Remote Access for OT",
+    description:
+      "Privitty gives every machine a cryptographic identity and every engineer verified, revokable access: no VPN, no firewall rules, no hardware. Built for OT.",
+    images: [
+      {
+        url: "/preview.png",
+        alt: "Privitty — Identity-First Security",
+      },
+    ],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
