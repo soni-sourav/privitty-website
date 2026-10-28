@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { GitHubIcon, YouTubeIcon, LinkedInIcon, XTwitterIcon, ShieldIcon } from "./Icons";
+import {
+  GitHubIcon,
+  YouTubeIcon,
+  LinkedInIcon,
+  XTwitterIcon,
+  ShieldIcon,
+} from "./Icons";
 
 export default function Footer() {
   const socialLinks = [
@@ -49,10 +55,14 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-extrabold text-xl text-[#17151D] font-headline">Privitty</span>
+              <span className="font-extrabold text-xl text-[#17151D] font-headline">
+                Privitty
+              </span>
             </div>
             <p className="text-[#625F6B] text-xs leading-relaxed max-w-sm">
-              The identity layer for operational technology. Machine identity by default. Human access, always revocable. No VPN. No hardware. No open ports.
+              The identity layer for operational technology. Machine identity by
+              default. Human access, always revocable. No VPN. No hardware. No
+              open ports.
             </p>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFEAF6] border border-[#DDD5EF] text-[10.5px] sm:text-[11px] font-bold tracking-[0.06em] text-[#432F75] select-none transition-all">
               <ShieldIcon className="w-3.5 h-3.5 text-[#503796] shrink-0" />
@@ -78,32 +88,124 @@ export default function Footer() {
 
           {/* Products Column */}
           <div data-gsap-item>
-            <h4 className="font-bold text-[#17151D] uppercase text-xs tracking-wider mb-4">PRODUCTS</h4>
+            <h4 className="font-bold text-[#17151D] uppercase text-xs tracking-wider mb-4">
+              PRODUCTS
+            </h4>
             <ul className="space-y-2.5 text-xs text-[#625F6B]">
-              <li><Link href="/product" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Edge & Watchtower</Link></li>
-              <li><Link href="/product#sdk" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Communicator SDK</Link></li>
-              <li><Link href="/product#app" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Communicator App</Link></li>
+              <li>
+                <Link
+                  href="/product"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Edge & Watchtower
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/product#sdk"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Communicator SDK
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/product#app"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Communicator App
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/whitepapers"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Whitepapers
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="https://docs.edge.privittytech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Privitty Edge Docs
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Company Column */}
           <div data-gsap-item>
-            <h4 className="font-bold text-[#17151D] uppercase text-xs tracking-wider mb-4">COMPANY</h4>
+            <h4 className="font-bold text-[#17151D] uppercase text-xs tracking-wider mb-4">
+              COMPANY
+            </h4>
             <ul className="space-y-2.5 text-xs text-[#625F6B]">
-              <li><Link href="/about" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">About Us</Link></li>
-              <li><Link href="/about#principles" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Principles</Link></li>
-              <li><Link href="/about#team" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Careers</Link></li>
-              <li><Link href="/about#contact" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Contact</Link></li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about#principles"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Principles
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about#team"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about#contact"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Legal & Trust Column */}
           <div data-gsap-item>
-            <h4 className="font-bold text-[#17151D] uppercase text-xs tracking-wider mb-4">LEGAL & TRUST</h4>
+            <h4 className="font-bold text-[#17151D] uppercase text-xs tracking-wider mb-4">
+              LEGAL & TRUST
+            </h4>
             <ul className="space-y-2.5 text-xs text-[#625F6B]">
-              <li><Link href="/privacy" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Privacy Policy</Link></li>
-              <li><Link href="/report-abuse" className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150">Report Abuse</Link></li>
-              <li><span className="hover:text-[#6750A4] cursor-pointer inline-block hover:translate-x-0.5 transition-colors duration-150">Terms of Service</span></li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/report-abuse"
+                  className="hover:text-[#6750A4] transition-colors inline-block hover:translate-x-0.5 duration-150"
+                >
+                  Report Abuse
+                </Link>
+              </li>
+              <li>
+                <span className="hover:text-[#6750A4] cursor-pointer inline-block hover:translate-x-0.5 transition-colors duration-150">
+                  Terms of Service
+                </span>
+              </li>
             </ul>
           </div>
         </div>
@@ -115,9 +217,15 @@ export default function Footer() {
         >
           <div>Privitty &copy; 2026. All rights reserved.</div>
           <div className="flex items-center gap-6">
-            <span className="hover:text-[#6750A4] cursor-pointer transition-colors">Enterprise Security</span>
-            <span className="hover:text-[#6750A4] cursor-pointer transition-colors">SOC 2 Certified</span>
-            <span className="hover:text-[#6750A4] cursor-pointer transition-colors">Hardware-Free Trust</span>
+            <span className="hover:text-[#6750A4] cursor-pointer transition-colors">
+              Enterprise Security
+            </span>
+            <span className="hover:text-[#6750A4] cursor-pointer transition-colors">
+              GDPR
+            </span>
+            <span className="hover:text-[#6750A4] cursor-pointer transition-colors">
+              CCPA
+            </span>
           </div>
         </div>
       </div>

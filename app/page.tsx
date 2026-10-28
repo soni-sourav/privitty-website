@@ -1,10 +1,11 @@
-"use client";
-
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BrandTagline from "./components/BrandTagline";
 import SecurityDashboardCard from "./components/SecurityDashboardCard";
+import PartnerMarquee from "./components/PartnerMarquee";
+import { getPublishedTestimonials, getPublishedPartners } from "@/app/lib/queries";
+import { resolveAssetUrl } from "@/app/lib/media";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -24,7 +25,14 @@ import {
   CloudIcon,
 } from "./components/Icons";
 
-export default function Home() {
+export default async function Home() {
+  const [testimonials, partners] = await Promise.all([
+    getPublishedTestimonials(),
+    getPublishedPartners(),
+  ]);
+  const featured = testimonials.find((t) => t.isFeatured) || testimonials[0];
+  const otherTestimonials = testimonials.filter((t) => t.id !== featured?.id);
+
   return (
     <div className="flex flex-col min-h-screen bg-[#F8F5FF] text-[#17151D]">
       <Navbar />
@@ -72,7 +80,7 @@ export default function Home() {
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <a
-                  href="#architecture"
+                  href="/whitepapers"
                   className="px-6 sm:px-7 py-3.5 rounded-xl sm:rounded-2xl bg-[#ECE7F5] hover:bg-[#E2DCED] text-[#221C30] font-semibold text-sm sm:text-base transition-all flex items-center justify-center interactive-btn"
                 >
                   Whitepaper
@@ -658,133 +666,137 @@ export default function Home() {
           </div>
 
           {/* Top Featured Testimonial Card */}
-          <div
-            data-gsap="scale-up"
-            className="bg-[#F4F1FA] rounded-[32px] p-8 sm:p-10 lg:p-12 border border-[#E8E3F2] shadow-sm premium-card"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Quote Content */}
-              <div className="lg:col-span-7 flex flex-col justify-between space-y-6 md:space-y-8">
-                {/* Purple Quote Symbol */}
-                <div className="text-[#553C9A]">
-                  <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                </div>
-
-                <blockquote className="text-xl sm:text-2xl lg:text-[27px] font-bold text-[#17151D] font-headline leading-snug tracking-tight">
-                  Their <span className="text-[#6750A4]">identity-first</span> approach helped us{" "}
-                  <span className="italic font-normal">eliminate VPN Complexity</span> and move faster with verified access, streamlining our deployments, improving security posture, and{" "}
-                  <span className="text-[#6750A4]">delivering outcomes</span> we couldn’t reach before.
-                </blockquote>
-
-                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#7A7589] pt-2">
-                  INDUSTRIAL AUTOMATION CONSORTIUM
-                </div>
-              </div>
-
-              {/* Right Industrial Image */}
-              <div className="lg:col-span-5">
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full shadow-md border border-[#DDD5EF] group">
-                  <Image
-                    src="/industrial-partner.jpg"
-                    alt="Industrial engineer working in automated automotive assembly line"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    priority={false}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 3 Testimonial Cards */}
-          <div
-            data-gsap="stagger"
-            data-gsap-stagger="0.1"
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 md:mt-8"
-          >
-            {/* Card 1 */}
-            <div data-gsap-item className="bg-[#F5F2FA] rounded-2xl p-6 lg:p-7 flex flex-col justify-between space-y-6 border border-[#E8E3F2] premium-card">
-              <div className="space-y-4">
-                {/* 5 Purple Stars */}
-                <div className="flex items-center gap-1 text-[#553C9A]">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          {featured && (
+            <div
+              data-gsap="scale-up"
+              className="bg-[#F4F1FA] rounded-[32px] p-8 sm:p-10 lg:p-12 border border-[#E8E3F2] shadow-sm premium-card"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                {/* Left Quote Content */}
+                <div className="lg:col-span-7 flex flex-col justify-between space-y-6 md:space-y-8">
+                  {/* Purple Quote Symbol */}
+                  <div className="text-[#553C9A]">
+                    <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
-                  ))}
-                </div>
-                <p className="text-[13px] sm:text-sm text-[#17151D] font-normal leading-relaxed">
-                  &ldquo;Their team helped us identify critical gaps in remote access, then deployed tools that improved both our speed and traceability.&rdquo;
-                </p>
-              </div>
+                  </div>
 
-              <div className="flex items-center gap-3 pt-2">
-                <div className="w-8 h-8 rounded-full bg-[#3F3356] text-white flex items-center justify-center text-xs font-bold shrink-0">
-                  LO
+                  <blockquote className="text-xl sm:text-2xl lg:text-[27px] font-bold text-[#17151D] font-headline leading-snug tracking-tight">
+                    {featured.quote}
+                  </blockquote>
+
+                  <div className="flex items-center gap-3.5 pt-2">
+                    {featured.authorPortrait ? (
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 border border-[#DDD8E8] shadow-xs">
+                        <Image
+                          src={resolveAssetUrl(featured.authorPortrait)}
+                          alt={featured.authorName}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-11 h-11 rounded-full bg-[#3F3356] text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {(featured.authorName || "PV")
+                          .split(" ")
+                          .map((w) => w[0])
+                          .filter(Boolean)
+                          .slice(0, 2)
+                          .join("")
+                          .toUpperCase() || "PV"}
+                      </div>
+                    )}
+                    <div>
+                      <div className="text-sm font-bold text-[#17151D]">{featured.authorName}</div>
+                      <div className="text-xs text-[#625F6B]">
+                        {featured.jobTitle}
+                        {featured.companyName && featured.companyName !== featured.authorName ? ` at ${featured.companyName}` : ""}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-[#17151D]">Leading OEM</div>
-                  <div className="text-[11px] text-[#625F6B]">Ongoing Partner</div>
+
+                {/* Right Industrial Image */}
+                <div className="lg:col-span-5">
+                  <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full shadow-md border border-[#DDD5EF] group">
+                    <Image
+                      src={resolveAssetUrl(featured.companyLogo || featured.authorPortrait || "/industrial-partner.jpg")}
+                      alt={featured.companyName || featured.authorName}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      priority={false}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+          )}
 
-            {/* Card 2 */}
-            <div data-gsap-item className="bg-[#F5F2FA] rounded-2xl p-6 lg:p-7 flex flex-col justify-between space-y-6 border border-[#E8E3F2] premium-card">
-              <div className="space-y-4">
-                {/* 5 Purple Stars */}
-                <div className="flex items-center gap-1 text-[#553C9A]">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-[13px] sm:text-sm text-[#17151D] font-normal leading-relaxed">
-                  &ldquo;We needed zero-trust remote access, and they nailed it. Every step was collaborative, transparent, and focused on securing the right outcome for us.&rdquo;
-                </p>
-              </div>
+          {/* Testimonial Cards */}
+          {otherTestimonials.length > 0 && (
+            <div
+              data-gsap="stagger"
+              data-gsap-stagger="0.1"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 md:mt-8"
+            >
+              {otherTestimonials.map((t) => {
+                const initials =
+                  (t.authorName || "PV")
+                    .split(" ")
+                    .map((w) => w[0])
+                    .filter(Boolean)
+                    .slice(0, 2)
+                    .join("")
+                    .toUpperCase() || "PV";
 
-              <div className="flex items-center gap-3 pt-2">
-                <div className="w-8 h-8 rounded-full bg-[#3F3356] text-white flex items-center justify-center text-xs font-bold shrink-0">
-                  PG
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-[#17151D]">Pankaj Garg</div>
-                  <div className="text-[11px] text-[#625F6B]">CEO at CoreIC</div>
-                </div>
-              </div>
+                return (
+                  <div
+                    key={t.id}
+                    data-gsap-item
+                    className="bg-[#F5F2FA] rounded-2xl p-6 lg:p-7 flex flex-col justify-between space-y-6 border border-[#E8E3F2] premium-card"
+                  >
+                    <div className="space-y-4">
+                      {/* 5 Purple Stars */}
+                      <div className="flex items-center gap-1 text-[#553C9A]">
+                        {[...Array(t.rating || 5)].map((_, i) => (
+                          <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <p className="text-[13px] sm:text-sm text-[#17151D] font-normal leading-relaxed">
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 pt-2">
+                      {t.authorPortrait ? (
+                        <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 border border-[#DDD8E8] shadow-xs">
+                          <Image
+                            src={resolveAssetUrl(t.authorPortrait)}
+                            alt={t.authorName}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-9 h-9 rounded-full bg-[#3F3356] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                          {initials}
+                        </div>
+                      )}
+                      <div>
+                        <div className="text-xs font-bold text-[#17151D]">{t.authorName}</div>
+                        <div className="text-[11px] text-[#625F6B]">
+                          {t.jobTitle}
+                          {t.companyName && t.companyName !== t.authorName ? ` at ${t.companyName}` : ""}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-
-            {/* Card 3 */}
-            <div data-gsap-item className="bg-[#F5F2FA] rounded-2xl p-6 lg:p-7 flex flex-col justify-between space-y-6 border border-[#E8E3F2] premium-card">
-              <div className="space-y-4">
-                {/* 5 Purple Stars */}
-                <div className="flex items-center gap-1 text-[#553C9A]">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-[13px] sm:text-sm text-[#17151D] font-normal leading-relaxed">
-                  &ldquo;From onboarding to live deployment, they were incredibly proactive and sharp. Our new identity-verified access layer reduced manual overhead.&rdquo;
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3 pt-2">
-                <div className="w-8 h-8 rounded-full bg-[#3F3356] text-white flex items-center justify-center text-xs font-bold shrink-0">
-                  SH
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-[#17151D]">Dr. Santosh Honnagunti</div>
-                  <div className="text-[11px] text-[#625F6B]">CEO of Tayana Mobility</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
 
           {/* Dark Statistics Bar with Animated Counters */}
           <div
@@ -830,6 +842,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* =========================================================================
+            SECTION 7.5: TRUSTED BY OUR PARTNERS (PARTNER LOGO MARQUEE)
+           ========================================================================= */}
+        <PartnerMarquee partners={partners} />
+
 
         {/* =========================================================================
             SECTION 8: BOTTOM CTA WITH CONCENTRIC CIRCLES
@@ -900,7 +918,7 @@ export default function Home() {
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="#architecture"
+              href="/whitepapers"
               className="px-6 py-3 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] font-semibold text-xs sm:text-sm shadow-xs transition-all interactive-btn"
             >
               Whitepaper

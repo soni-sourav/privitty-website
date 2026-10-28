@@ -28,7 +28,9 @@ export default function Navbar() {
   const [demoSubmitted, setDemoSubmitted] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(null);
+  const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(
+    null,
+  );
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navContainerRef = useRef<HTMLDivElement | null>(null);
@@ -82,7 +84,7 @@ export default function Navbar() {
     cards: [
       {
         icon: <EdgePcIcon className="w-5 h-5 text-white" />,
-        badge: "EDGE PC",
+        badge: "EDGE",
         category: "OT & GATEWAY SECURITY",
         title: "Privitty Edge",
         description:
@@ -131,6 +133,7 @@ export default function Navbar() {
       submenu: productsSubmenuData,
     },
     { name: "How It Works", href: "/#architecture" },
+    { name: "Docs", href: "https://docs.edge.privittytech.com/" },
     { name: "About", href: "/about" },
     { name: "Privacy", href: "/privacy" },
     { name: "Report Abuse", href: "/report-abuse" },
@@ -213,6 +216,8 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  target={link.name === "Docs" ? "_blank" : undefined}
+                  rel={link.name === "Docs" ? "noopener noreferrer" : undefined}
                   className={`transition-colors py-2 ${
                     isActive
                       ? "text-[#6750A4] font-bold border-b-2 border-[#6750A4]"
@@ -271,7 +276,9 @@ export default function Navbar() {
                         <span>{link.name}</span>
                         <ChevronDown
                           className={`w-4 h-4 transition-transform duration-200 ${
-                            isExpanded ? "rotate-180 text-[#6750A4]" : "text-[#7B7787]"
+                            isExpanded
+                              ? "rotate-180 text-[#6750A4]"
+                              : "text-[#7B7787]"
                           }`}
                         />
                       </button>
@@ -289,6 +296,10 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
+                    target={link.name === "Docs" ? "_blank" : undefined}
+                    rel={
+                      link.name === "Docs" ? "noopener noreferrer" : undefined
+                    }
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-sm font-semibold text-[#17151D] py-2 px-1 hover:text-[#6750A4]"
                   >
@@ -337,7 +348,8 @@ export default function Navbar() {
                   Schedule Privitty Architecture Review
                 </h3>
                 <p className="text-xs text-[#625F6B]">
-                  Connect with our OT Security and Sovereign Infrastructure specialists to assess your zero-trust posture.
+                  Connect with our OT Security and Sovereign Infrastructure
+                  specialists to assess your zero-trust posture.
                 </p>
 
                 <form
@@ -348,7 +360,9 @@ export default function Navbar() {
                   className="space-y-4"
                 >
                   <div>
-                    <label className="block text-xs font-bold text-[#17151D] mb-1">Work Email *</label>
+                    <label className="block text-xs font-bold text-[#17151D] mb-1">
+                      Work Email *
+                    </label>
                     <input
                       type="email"
                       required
@@ -357,7 +371,9 @@ export default function Navbar() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-[#17151D] mb-1">Company / Organization *</label>
+                    <label className="block text-xs font-bold text-[#17151D] mb-1">
+                      Company / Organization *
+                    </label>
                     <input
                       type="text"
                       required
@@ -366,11 +382,15 @@ export default function Navbar() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-[#17151D] mb-1">Deployment Focus</label>
+                    <label className="block text-xs font-bold text-[#17151D] mb-1">
+                      Deployment Focus
+                    </label>
                     <select className="w-full px-4 py-3 rounded-xl border border-[#DDD8E8] text-sm focus:outline-none focus:border-[#6750A4]">
                       <option>Operational Technology (OT) &amp; ICS</option>
                       <option>Data Sovereignty &amp; Local Residency</option>
-                      <option>Machine Identity &amp; Certificate Automation</option>
+                      <option>
+                        Machine Identity &amp; Certificate Automation
+                      </option>
                       <option>Full Platform Audit</option>
                     </select>
                   </div>
@@ -388,9 +408,12 @@ export default function Navbar() {
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                   <CheckIcon className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#17151D] font-headline">Request Confirmed</h3>
+                <h3 className="text-2xl font-bold text-[#17151D] font-headline">
+                  Request Confirmed
+                </h3>
                 <p className="text-xs text-[#625F6B]">
-                  Our security architecture team will reach out within 4 business hours.
+                  Our security architecture team will reach out within 4
+                  business hours.
                 </p>
                 <button
                   onClick={() => {

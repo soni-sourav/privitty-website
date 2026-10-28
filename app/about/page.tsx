@@ -1,23 +1,12 @@
-"use client";
-
-import Image from "next/image";
-import { useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BrandTagline from "../components/BrandTagline";
-import { ArrowRight, ArrowUpRight, CheckIcon, XIcon, LinkedInIcon, ShieldIcon } from "../components/Icons";
+import TeamCarousel from "./TeamCarousel";
+import { ArrowRight, ArrowUpRight, CheckIcon, XIcon, ShieldIcon } from "../components/Icons";
+import { getPublishedTeamMembers } from "@/app/lib/queries";
 
-export default function AboutPage() {
-  const teamSliderRef = useRef<HTMLDivElement>(null);
-
-  const scrollTeam = (direction: -1 | 1) => {
-    const slider = teamSliderRef.current;
-    if (!slider) return;
-    slider.scrollBy({
-      left: direction * slider.clientWidth,
-      behavior: "smooth",
-    });
-  };
+export default async function AboutPage() {
+  const teamMembers = await getPublishedTeamMembers();
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8F5FF] text-[#17151D]">
@@ -282,201 +271,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="flex justify-end gap-2 mb-4">
-              <button
-                type="button"
-                onClick={() => scrollTeam(-1)}
-                aria-label="Previous team members"
-                className="w-10 h-10 rounded-full border border-[#DDD8E8] bg-white text-[#4F378A] hover:bg-[#6750A4] hover:text-white transition-colors flex items-center justify-center"
-              >
-                <span aria-hidden="true" className="text-xl leading-none">‹</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollTeam(1)}
-                aria-label="Next team members"
-                className="w-10 h-10 rounded-full border border-[#DDD8E8] bg-white text-[#4F378A] hover:bg-[#6750A4] hover:text-white transition-colors flex items-center justify-center"
-              >
-                <span aria-hidden="true" className="text-xl leading-none">›</span>
-              </button>
-            </div>
-
-            <div
-              ref={teamSliderRef}
-              data-gsap="stagger"
-              data-gsap-stagger="0.1"
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            >
-            {/* Team Member 1 */}
-            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Milind Deore</h3>
-                  <p className="text-[11px] font-semibold text-[#6750A4]">CEO</p>
-                </div>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
-                  aria-label="LinkedIn profile"
-                >
-                  <LinkedInIcon className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
-                <Image
-                  src="/milind.png"
-                  alt="Milind Deore - CEO"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-            </div>
-
-            {/* Team Member 2 */}
-            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Ashish Gupta</h3>
-                  <p className="text-[11px] font-semibold text-[#6750A4]">COO</p>
-                </div>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
-                  aria-label="LinkedIn profile"
-                >
-                  <LinkedInIcon className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
-                <Image
-                  src="/ashish.png"
-                  alt="Ashish Gupta - COO"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-            </div>
-
-            {/* Team Member 3 */}
-            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Girish Jadhav</h3>
-                  <p className="text-[11px] font-semibold text-[#6750A4]">Mobile App Developer</p>
-                </div>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
-                  aria-label="LinkedIn profile"
-                >
-                  <LinkedInIcon className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
-                <Image
-                  src="/girish.png"
-                  alt="Girish Jadhav - Mobile App Developer"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-            </div>
-
-            {/* Team Member 4 */}
-            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Sourav Soni</h3>
-                  <p className="text-[11px] font-semibold text-[#6750A4]">Full Stack Developer</p>
-                </div>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
-                  aria-label="LinkedIn profile"
-                >
-                  <LinkedInIcon className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
-                <Image
-                  src="/sourav.png"
-                  alt="Sourav Soni - Full Stack Developer"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-            </div>
-
-            {/* Team Member 5 */}
-            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Tejas Sharma</h3>
-                  <p className="text-[11px] font-semibold text-[#6750A4]">Software Engineer</p>
-                </div>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
-                  aria-label="LinkedIn profile"
-                >
-                  <LinkedInIcon className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
-                <Image
-                  src="/tejas.png"
-                  alt="Tejas Sharma - Software Engineer"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-            </div>
-
-            {/* Team Member 5 */}
-            <div data-gsap-item className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0 snap-start bg-white p-5 rounded-2xl border border-[#DDD8E8]/70 shadow-xs space-y-4 flex flex-col justify-between premium-card group">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-[#17151D] font-headline group-hover:text-[#6750A4] transition-colors">Prof. (Dr.) S. R. Dhore</h3>
-                  <p className="text-[11px] font-semibold text-[#6750A4]">Advisor</p>
-                </div>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-lg bg-[#ECE7F6] text-[#4F378A] hover:bg-[#553C9A] hover:text-white flex items-center justify-center transition-all duration-200 active:scale-95"
-                  aria-label="LinkedIn profile"
-                >
-                  <LinkedInIcon className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden border border-[#DDD8E8]/50 bg-slate-100">
-                <Image
-                  src="/dr-dhore.png"
-                  alt="Prof. (Dr.) S. R. Dhore - Advisor"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-              </div>
-            </div>
-          </div>
-          </div>
+          <TeamCarousel teamMembers={teamMembers} />
         </section>
 
         {/* =========================================================================
@@ -671,7 +466,7 @@ export default function AboutPage() {
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="/#architecture"
+              href="/whitepapers"
               className="px-6 py-3 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] font-semibold text-xs sm:text-sm shadow-xs transition-all interactive-btn"
             >
               Whitepaper

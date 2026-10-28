@@ -95,6 +95,27 @@ h1, h2, h3, h4, h5, h6 {
   transform-origin: center;
 }
 
+/* Seamless Infinite Marquee (Right to Left) */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
 /* Respect Prefers-Reduced-Motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

@@ -318,7 +318,7 @@ export default function ProductPage() {
               Schedule Demo
             </a>
             <a
-              href="#architecture"
+              href="/whitepapers"
               className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all interactive-btn"
             >
               Read Whitepaper
@@ -676,7 +676,7 @@ export default function ProductPage() {
               Schedule Demo
             </a>
             <a
-              href="#architecture"
+              href="/whitepapers"
               className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all interactive-btn"
             >
               Read Whitepaper
@@ -887,7 +887,7 @@ export default function ProductPage() {
               Schedule Demo
             </a>
             <a
-              href="#architecture"
+              href="/whitepapers"
               className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] text-xs font-semibold shadow-xs transition-all interactive-btn"
             >
               Read Whitepaper
@@ -964,7 +964,7 @@ export default function ProductPage() {
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="/#architecture"
+              href="/whitepapers"
               className="px-6 py-3 rounded-xl bg-white hover:bg-[#F8F5FF] text-[#17151D] border border-[#DDD8E8] font-semibold text-xs sm:text-sm shadow-xs transition-all interactive-btn"
             >
               Whitepaper

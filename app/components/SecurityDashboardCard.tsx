@@ -16,13 +16,19 @@ export default function SecurityDashboardCard() {
       {/* 1. Header: Gateway info & E2EE badge */}
       <div className="flex items-center justify-between gap-3 pb-1">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#F0ECF8] text-[#503796] flex items-center justify-center shrink-0 shadow-xs">
-            <GatewayIcon className="w-5 h-5" />
+          <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 shadow-xs">
+            <img
+              src="/gateway-icon.png"
+              alt="Gateway Icon"
+              className="w-full h-full object-cover"
+            />
           </div>
+
           <div>
             <div className="text-sm sm:text-[15px] font-bold text-[#17151D] tracking-tight">
               Factory Floor : GATEWAY-001
             </div>
+
             <div className="text-xs text-[#7B7785] font-normal flex items-center gap-1.5 mt-0.5">
               <span>Osaka Plant</span>
               <span>&bull;</span>
@@ -79,8 +85,12 @@ export default function SecurityDashboardCard() {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[#17151D]">GATEWAY-001</span>
-            <span className="text-[11px] text-[#7B7785] font-mono">14:02 UTC</span>
+            <span className="text-xs font-bold text-[#17151D]">
+              GATEWAY-001
+            </span>
+            <span className="text-[11px] text-[#7B7785] font-mono">
+              14:02 UTC
+            </span>
           </div>
           <p className="text-xs text-[#625F6B] mt-0.5 leading-snug">
             Package received and staged cryptographically.
@@ -100,7 +110,9 @@ export default function SecurityDashboardCard() {
           <span className="text-xs font-bold text-[#503796]">
             Yamamoto (Sr. OT Lead)
           </span>
-          <span className="text-[11px] text-[#7B7785] font-mono">14:03 UTC</span>
+          <span className="text-[11px] text-[#7B7785] font-mono">
+            14:03 UTC
+          </span>
         </div>
         <p className="text-xs text-[#524E5B] leading-snug">
           Opening remote session to apply GX Works logic.
